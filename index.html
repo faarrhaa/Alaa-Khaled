@@ -239,10 +239,6 @@ html{scroll-behavior:smooth;}
   <div id="stars"></div>
   <div id="shooting-stars-container"></div>
   <div id="petals-bg"></div>
-  <div style="position:absolute;top:8%;left:4%;opacity:.25;animation:floralSway 5s ease-in-out infinite;pointer-events:none;"><svg width="80" height="100"><use href="#lily"/></svg></div>
-  <div style="position:absolute;top:12%;right:5%;opacity:.2;animation:floralSway 6s ease-in-out infinite reverse;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
-  <div style="position:absolute;bottom:10%;left:6%;opacity:.22;animation:floralSway 7s ease-in-out infinite;pointer-events:none;"><svg width="60" height="75"><use href="#lily"/></svg></div>
-  <div style="position:absolute;bottom:15%;right:4%;opacity:.18;animation:floralSway 5.5s ease-in-out infinite reverse;pointer-events:none;"><svg width="75" height="95"><use href="#lily"/></svg></div>
   
   <div id="env-wrap">
     <svg width="400" height="270" viewBox="0 0 400 270" style="filter:drop-shadow(0 0 35px rgba(168,184,104,.5))">
@@ -251,15 +247,30 @@ html{scroll-behavior:smooth;}
       <path d="M8 265 L200 160 L392 265" fill="none" stroke="#A8B868" stroke-width=".8" opacity=".6"/>
       
       <g id="seal-group" style="cursor:pointer;" onclick="openEnvelope()">
-        <circle cx="200" cy="185" r="42" fill="#F4C2C2" stroke="#e89aaa" stroke-width="2.5"/>
-        <circle cx="200" cy="185" r="34" fill="none" stroke="#d88a9a" stroke-width="1" stroke-dasharray="4,2"/>
-        <text x="200" y="183" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" letter-spacing="1" fill="#8a3040" font-family="Pinyon Script, cursive">K & A</text>
+        <!-- Wax seal base with scalloped edge -->
+        <circle cx="200" cy="185" r="44" fill="#e8a8b8" opacity="0.4"/>
+        <circle cx="200" cy="185" r="42" fill="url(#waxGrad)"/>
+        <!-- scalloped border -->
+        <circle cx="200" cy="185" r="38" fill="none" stroke="#c07888" stroke-width="1.2" stroke-dasharray="3,2.5" opacity="0.7"/>
+        <circle cx="200" cy="185" r="33" fill="none" stroke="#c07888" stroke-width="0.6" opacity="0.4"/>
+        <!-- A slightly lower-right, same color, partial overlap -->
+        <text x="200" y="190" text-anchor="middle" dominant-baseline="central"
+              font-size="30" fill="#8a3040"
+              font-family="Pinyon Script, cursive">A</text>
+        <!-- K slightly upper-left, same color -->
+        <text x="188" y="181" text-anchor="middle" dominant-baseline="central"
+              font-size="30" fill="#8a3040"
+              font-family="Pinyon Script, cursive">K</text>
+        <!-- gradient def -->
+        <defs>
+          <radialGradient id="waxGrad" cx="42%" cy="38%" r="58%">
+            <stop offset="0%" stop-color="#F9D0DA"/>
+            <stop offset="55%" stop-color="#F0B8C8"/>
+            <stop offset="100%" stop-color="#D898A8"/>
+          </radialGradient>
+        </defs>
       </g>
       
-      <text x="24" y="90" font-size="20" fill="#f0e68c" opacity=".8" font-family="serif">✿</text>
-      <text x="358" y="90" font-size="20" fill="#f0e68c" opacity=".8" font-family="serif">✿</text>
-      <text x="18" y="258" font-size="16" fill="#8FBC8F" opacity=".6" font-family="serif">❧</text>
-      <text x="366" y="258" font-size="16" fill="#8FBC8F" opacity=".6" font-family="serif">❧</text>
     </svg>
     <div style="margin-top:22px;text-align:center;">
       <div style="font-family:'Pinyon Script',cursive;font-size:28px;color:#fdf8f5;letter-spacing:2px;opacity:.9;">Khaled &amp; Alaa</div>
@@ -280,9 +291,51 @@ html{scroll-behavior:smooth;}
     <div style="position:absolute;bottom:-10px;left:0;opacity:.12;pointer-events:none;animation:floralSway 8s ease-in-out infinite;"><svg width="90" height="110"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:-10px;right:0;opacity:.12;pointer-events:none;animation:floralSway 5.5s ease-in-out infinite reverse;"><svg width="90" height="110"><use href="#lily"/></svg></div>
 
-    <p class="fade-section tagline" style="color:var(--deep-rose);margin-bottom:14px;animation-delay:.05s;">Together with our families</p>
+    <!-- Arabic names — layered overlap exactly like reference: فرح on top-right, أسامة large behind-left -->
+    <div class="fade-section" style="animation-delay:.05s;margin-bottom:28px;position:relative;display:flex;justify-content:center;">
+      <div style="position:relative;width:clamp(260px,60vw,420px);height:clamp(160px,24vw,220px);direction:rtl;">
+        <span id="name-alaa" class="name-shimmer" style="
+          font-family:'Amiri',serif;
+          font-size:clamp(54px,11vw,100px);
+          font-weight:700;
+          color:var(--text-dark);
+          position:absolute;
+          top:0;
+          right:clamp(20px,5vw,50px);
+          line-height:1;
+          z-index:2;
+          white-space:nowrap;
+        ">آلاء</span>
+        <!-- & sign placed diagonally between the two names -->
+        <span style="
+          font-family:'Pinyon Script',cursive;
+          font-size:clamp(32px,6vw,52px);
+          color:var(--deep-rose);
+          position:absolute;
+          top:clamp(28px,5vw,52px);
+          left:50%;
+          transform:translateX(-50%) rotate(-15deg);
+          z-index:3;
+          white-space:nowrap;
+          line-height:1;
+        ">&</span>
+        <span id="name-khaled" class="name-shimmer" style="
+          font-family:'Amiri',serif;
+          font-size:clamp(70px,15vw,130px);
+          font-weight:700;
+          color:var(--text-dark);
+          position:absolute;
+          top:clamp(34px,6vw,62px);
+          left:0;
+          line-height:1;
+          z-index:1;
+          white-space:nowrap;
+        ">خالد</span>
+      </div>
+    </div>
 
-    <div class="fade-section" style="animation-delay:.08s;margin-bottom:36px;max-width:700px;margin-left:auto;margin-right:auto;">
+    <!-- Quran verse -->
+    <div class="fade-section" style="animation-delay:.18s;margin-bottom:32px;max-width:700px;margin-left:auto;margin-right:auto;">
       <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px;opacity:.55;">
         <svg width="120" height="8" viewBox="0 0 120 8"><line x1="0" y1="4" x2="50" y2="4" stroke="#e89aaa" stroke-width=".8"/><circle cx="60" cy="4" r="2.5" fill="#e89aaa"/><line x1="70" y1="4" x2="120" y2="4" stroke="#e89aaa" stroke-width=".8"/></svg>
         <svg width="35" height="45"><use href="#lily"/></svg>
@@ -297,16 +350,13 @@ html{scroll-behavior:smooth;}
       </div>
     </div>
 
-    <h1 class="fade-section name-shimmer" id="name-khaled" style="font-family:'Amiri',serif;font-size:clamp(48px,10vw,90px);color:var(--text-dark);line-height:1.15;animation-delay:.15s;cursor:default;display:inline-block;direction:rtl;">خالد</h1>
-    <div class="fade-section" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:var(--deep-rose);margin:4px 20px;animation-delay:.22s;">&</div>
-    <h1 class="fade-section name-shimmer" id="name-alaa" style="font-family:'Amiri',serif;font-size:clamp(48px,10vw,90px);color:var(--text-dark);line-height:1.15;animation-delay:.3s;cursor:default;display:inline-block;direction:rtl;">آلاء</h1>
-
-    <div class="fade-section" style="margin:24px auto;animation-delay:.38s;">
+    <!-- English text: Together with our families… -->
+    <div class="fade-section" style="animation-delay:.32s;margin-bottom:8px;">
       <svg width="200" height="18" viewBox="0 0 200 18"><line x1="0" y1="9" x2="82" y2="9" stroke="#9dbf9e" stroke-width=".8"/><text x="100" y="14" text-anchor="middle" font-size="13" fill="#e89aaa" font-family="serif">❧</text><line x1="118" y1="9" x2="200" y2="9" stroke="#9dbf9e" stroke-width=".8"/></svg>
     </div>
-
-    <p class="fade-section" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,32px);color:var(--text-mid);margin-bottom:6px;animation-delay:.48s;">request the honour of your presence</p>
-    <p class="fade-section" style="font-family:'Lato',sans-serif;font-size:clamp(14px,2.5vw,18px);color:var(--text-light);animation-delay:.54s;">at the celebration of our wedding</p>
+    <p class="fade-section tagline" style="color:var(--deep-rose);margin-bottom:10px;animation-delay:.36s;">Together with our families</p>
+    <p class="fade-section" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,32px);color:var(--text-mid);margin-bottom:6px;animation-delay:.42s;">request the honour of your presence</p>
+    <p class="fade-section" style="font-family:'Lato',sans-serif;font-size:clamp(14px,2.5vw,18px);color:var(--text-light);animation-delay:.48s;">at the celebration of our wedding</p>
 
     <div class="fade-section divider-stars" style="color:var(--rose);animation:shimmerGold 3s ease-in-out infinite;animation-delay:.72s;">✦ ✦ ✦</div>
   </section>
@@ -317,7 +367,7 @@ html{scroll-behavior:smooth;}
     <div style="position:absolute;bottom:10px;right:10px;opacity:.1;pointer-events:none;"><svg width="80" height="100"><use href="#lily"/></svg></div>
     <p class="reveal-child reveal-delay-1 tagline" style="color:var(--green-mid);margin-bottom:10px;">Save the Date</p>
     <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:var(--text-dark);margin-bottom:16px;">Scratch to Reveal the Date</h2>
-    <p class="reveal-child reveal-delay-3" style="font-family:'Lato',sans-serif;font-style:italic;font-size:15px;color:var(--text-light);margin-bottom:36px;">Scratch each circle to uncover our wedding date</p>
+    <p class="reveal-child reveal-delay-3" style="font-family:'Lato',sans-serif;font-style:italic;font-size:15px;color:var(--text-light);margin-bottom:36px;">Scratch each circle to reveal our wedding date</p>
 
     <div class="reveal-child reveal-delay-3 scratch-wrapper">
       <div class="scratch-item">

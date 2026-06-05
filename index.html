@@ -66,6 +66,7 @@ html{scroll-behavior:smooth;}
 .reveal-delay-4{transition-delay:.6s;}
 
 .tagline{font-size:clamp(11px,2.5vw,13px)!important;letter-spacing:clamp(2px,1.5vw,7px)!important;text-transform:uppercase;}
+[dir="rtl"] .tagline{letter-spacing:0!important;text-transform:none!important;font-size:clamp(13px,3.5vw,16px)!important;}
 .divider-stars{font-size:clamp(16px,4vw,22px)!important;letter-spacing:clamp(3px,2vw,10px)!important;}
 .fade-section{animation:fadeUp .8s ease both;}
 
@@ -92,10 +93,11 @@ html{scroll-behavior:smooth;}
 [dir="rtl"] .letter-paper p{text-align:right;}
 [dir="rtl"] .letter-paper div{text-align:left;}
 
-.cbox{background:linear-gradient(135deg,#e8f5e8,#f0ede8);border:1px solid var(--sage-light);border-radius:14px;padding:22px 20px;min-width:82px;text-align:center;transition:transform .2s;box-shadow:0 4px 20px rgba(100,160,100,.1);}
+.cbox{background:linear-gradient(135deg,#e8f5e8,#f0ede8);border:1px solid var(--sage-light);border-radius:14px;padding:clamp(12px,2.5vw,22px) clamp(8px,2vw,20px);min-width:clamp(60px,20vw,82px);flex:1;max-width:110px;text-align:center;transition:transform .2s;box-shadow:0 4px 20px rgba(100,160,100,.1);}
 .cbox:hover{transform:scale(1.06);}
-.cnum{font-family:'Cormorant',serif;font-size:clamp(56px,10vw,88px);font-weight:400;color:var(--green-dark);line-height:1;}
+.cnum{font-family:'Cormorant',serif;font-size:clamp(36px,8vw,88px);font-weight:400;color:var(--green-dark);line-height:1;}
 .clbl{font-family:'Cormorant',serif;font-size:12px;letter-spacing:clamp(1px,1vw,4px);color:var(--green-mid);margin-top:8px;text-transform:uppercase;}
+[dir="rtl"] .clbl{letter-spacing:0!important;text-transform:none!important;font-size:14px!important;font-family:'Amiri',serif!important;}
 
 #venue-bg{position:absolute;inset:-30px;background-size:cover;background-position:center 80%;will-change:transform;transition:transform .1s linear;}
 #venue-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,30,10,.5),rgba(30,60,30,.7));}
@@ -116,6 +118,7 @@ html{scroll-behavior:smooth;}
 .scratch-wrapper{display:flex;justify-content:center;gap:clamp(12px,3vw,28px);flex-wrap:wrap;margin:32px 0;}
 .scratch-item{display:flex;flex-direction:column;align-items:center;gap:12px;}
 .scratch-label{font-family:'Cormorant',serif;font-size:11px;letter-spacing:3px;color:var(--green-mid);text-transform:uppercase;}
+[dir="rtl"] .scratch-label{letter-spacing:0!important;text-transform:none!important;font-size:14px!important;font-family:'Amiri',serif!important;}
 .scratch-circle-container{position:relative;width:100px;height:100px;border-radius:50%;overflow:hidden;cursor:crosshair;box-shadow:0 4px 20px rgba(100,160,100,.2),0 0 0 3px var(--sage-light);}
 .scratch-reveal{position:absolute;inset:0;background:linear-gradient(135deg,#f0f8f0,var(--cream));display:flex;align-items:center;justify-content:center;border-radius:50%;}
 .scratch-reveal-text{font-family:'Cormorant',serif;font-size:clamp(38px,9vw,52px);font-weight:600;color:var(--green-dark);letter-spacing:2px;}
@@ -162,8 +165,8 @@ html{scroll-behavior:smooth;}
   .scratch-circle-container{width:82px;height:82px;}
   .scratch-reveal-text{font-size:32px!important;}
   .scratch-wrapper{gap:10px;}
-  .cbox{min-width:68px;padding:16px 12px;}
-  .cnum{font-size:clamp(46px,12vw,70px);}
+  .cbox{min-width:0;padding:12px 8px;border-radius:10px;}
+  .cnum{font-size:clamp(30px,9vw,52px);}
   .detail-row{flex-direction:column;gap:10px;padding:18px 0;text-align:center;align-items:center;}
   .detail-row-body{text-align:center;}
   .detail-row-icon{width:40px;height:40px;font-size:17px;}
@@ -367,7 +370,7 @@ html{scroll-behavior:smooth;}
     <div style="position:absolute;bottom:20px;right:20px;opacity:.1;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
     <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;font-family:'Cormorant',serif;" id="cd-tagline" data-font-swap>Counting down to</p>
     <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:44px;" id="cd-title">Our Big Day</h2>
-    <div class="reveal-child reveal-delay-3" style="display:flex;justify-content:center;gap:clamp(10px,2.5vw,28px);flex-wrap:wrap;direction:ltr;">
+    <div class="reveal-child reveal-delay-3" style="display:flex;justify-content:center;gap:clamp(6px,1.5vw,20px);flex-wrap:nowrap;direction:ltr;width:100%;max-width:520px;margin:0 auto;padding:0 8px;box-sizing:border-box;">
       <div class="cbox"><div class="cnum" id="cd-days">--</div><div class="clbl" id="cd-lbl-days" data-font-swap>Days</div></div>
       <div class="cbox"><div class="cnum" id="cd-hours">--</div><div class="clbl" id="cd-lbl-hours" data-font-swap>Hours</div></div>
       <div class="cbox"><div class="cnum" id="cd-mins">--</div><div class="clbl" id="cd-lbl-mins" data-font-swap>Minutes</div></div>
@@ -805,12 +808,27 @@ function applyLang(lang){
   setText('hero-tagline',t.heroTagline);
   setText('hero-subtitle',t.heroSubtitle);
   setText('hero-caption',t.heroCaption);
+  // fix hero-subtitle — Pinyon Script is Latin only, swap to Amiri for Arabic
+  const heroSub=document.getElementById('hero-subtitle');
+  if(heroSub){
+    heroSub.style.fontFamily=lang==='ar'?"'Amiri',serif":"'Pinyon Script',cursive";
+    heroSub.style.fontSize=lang==='ar'?'clamp(22px,4vw,32px)':'';
+    heroSub.style.fontStyle=lang==='ar'?'normal':'italic';
+    heroSub.style.fontWeight=lang==='ar'?'700':'600';
+  }
 
   // scratch
   setText('scratch-tagline',t.scratchTagline);
   setText('scratch-title',t.scratchTitle);
   setText('scratch-sub',t.scratchSub);
   ['scratch-lbl-0','scratch-lbl-1','scratch-lbl-2'].forEach((id,i)=>setText(id,t.scratchLbls[i]));
+  // fix Pinyon Script titles — Latin only
+  ['scratch-title','cd-title','map-title','details-title','letter-title','wishes-title'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.style.fontFamily=lang==='ar'?"'Amiri',serif":"'Pinyon Script',cursive";
+    el.style.fontStyle=lang==='ar'?'normal':'';
+    el.style.fontWeight=lang==='ar'?'700':'600';
+  });
 
   // quote
   setText('love-quote-text',t.quoteText);

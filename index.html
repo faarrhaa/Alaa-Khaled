@@ -165,11 +165,19 @@ html{scroll-behavior:smooth;}
   #name-khaled{font-size:clamp(90px,22vw,136px)!important;}
   .quran-verse{font-size:clamp(16px,4.5vw,20px)!important;}
   .quran-bismillah{font-size:clamp(15px,4vw,18px)!important;}
-  .scratch-circle-container{width:82px;height:82px;}
-  .scratch-reveal-text{font-size:32px!important;}
-  .scratch-wrapper{gap:10px;}
-  .cbox{min-width:0;padding:12px 8px;border-radius:10px;}
-  .cnum{font-size:clamp(30px,9vw,52px);}
+  /* Arabic details centered on mobile */
+  [dir="rtl"] .detail-row{text-align:center!important;align-items:center!important;}
+  [dir="rtl"] .detail-row-body{text-align:center!important;width:100%;}
+  [dir="rtl"] .detail-row-label{text-align:center!important;}
+  [dir="rtl"] .detail-row-value{text-align:center!important;}
+  [dir="rtl"] .detail-row-note{text-align:center!important;}
+  /* Scratch number bigger but fits */
+  .scratch-circle-container{width:90px;height:90px;}
+  .scratch-reveal-text{font-size:38px!important;}
+  /* Countdown number bigger but fits */
+  .cbox{min-width:0;padding:10px 4px;border-radius:10px;}
+  .cnum{font-size:clamp(36px,10.5vw,58px);}
+
   .detail-row{flex-direction:column;gap:10px;padding:18px 0;text-align:center;align-items:center;}
   .detail-row-body{text-align:center;}
   .detail-row-icon{width:40px;height:40px;font-size:17px;}
@@ -503,8 +511,8 @@ html{scroll-behavior:smooth;}
   <section class="closing-section reveal-section">
     <div style="position:absolute;top:16px;left:20px;opacity:.18;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:16px;right:20px;opacity:.18;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
-    <p class="reveal-child reveal-delay-1" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:18px;letter-spacing:.5px;font-weight:600;" id="closing-line1">We can't wait</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:22px;font-weight:600;" id="closing-line2">To Share Our Day With You All!</h2>
+    <p class="reveal-child reveal-delay-1" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:4px;letter-spacing:.5px;font-weight:600;" id="closing-line1">We can't wait</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:22px;font-weight:600;line-height:1.2;" id="closing-line2">To Share Our Day With You All!</h2>
     <p class="reveal-child reveal-delay-3" style="font-family:'Cormorant',serif;font-size:clamp(18px,3vw,26px);color:var(--sage-light);max-width:560px;margin:0 auto 44px;line-height:1.75;" id="closing-body" data-font-swap>Your presence would be the greatest gift you could give us on the most beautiful day of our lives.</p>
     <div class="reveal-child reveal-delay-4" style="display:inline-block;border:1px solid var(--sage);padding:28px 44px;border-radius:6px;">
       <div style="font-family:'Pinyon Script',cursive;font-size:24px;color:#fdf8f5;margin-bottom:8px;">Khaled &amp; Alaa</div>

@@ -6,7 +6,7 @@
 <title>💍 Khaled & Alaa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&display=block" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&display=block" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -26,8 +26,9 @@
   --text-dark:#3a2a34;
   --text-mid:#7a5060;
   --text-light:#9a7080;
+  --env-green:#1a3020;
 }
-body{font-family:'Lato',sans-serif;background:#1a2e1a;overflow-x:hidden;}
+body{font-family:'Cormorant',serif;background:#1a2e1a;overflow-x:hidden;}
 html{scroll-behavior:smooth;}
 
 .film-grain{position:fixed;inset:0;width:100vw;height:100vh;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999;}
@@ -68,7 +69,7 @@ html{scroll-behavior:smooth;}
 .divider-stars{font-size:clamp(16px,4vw,22px)!important;letter-spacing:clamp(3px,2vw,10px)!important;}
 .fade-section{animation:fadeUp .8s ease both;}
 
-#envelope-screen{min-height:100vh;background:linear-gradient(160deg,#0d1f0d,#1a3020);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:40px 20px;}
+#envelope-screen{min-height:100vh;background:linear-gradient(160deg,#0d1f0d,var(--env-green));display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:40px 20px;}
 #env-wrap{animation:floatEnv 4s ease-in-out infinite;display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;cursor:default;}
 #env-wrap.closing{animation:envOpen .65s cubic-bezier(.4,0,.6,1) forwards!important;}
 .hint-pulse{animation:heartBeat 2.2s ease-in-out infinite;}
@@ -78,10 +79,23 @@ html{scroll-behavior:smooth;}
 #music-btn{position:fixed;top:20px;right:20px;z-index:1000;width:48px;height:48px;border-radius:50%;background:rgba(60,90,60,.85);border:1px solid var(--sage);color:var(--sage);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);transition:transform .2s,background .2s;box-shadow:0 2px 16px rgba(0,0,0,.3);}
 #music-btn:hover{transform:scale(1.1);}
 
+#lang-btn{position:fixed;top:18px;left:18px;z-index:1000;display:none;cursor:pointer;border:none;background:none;padding:0;}
+#lang-pill{display:flex;align-items:center;background:rgba(20,45,25,.92);border:1.5px solid var(--sage);border-radius:999px;padding:4px;gap:0;box-shadow:0 4px 20px rgba(0,0,0,.45);backdrop-filter:blur(10px);transition:box-shadow .2s;}
+#lang-btn:hover #lang-pill{box-shadow:0 6px 28px rgba(0,0,0,.55);}
+.lang-opt{font-family:'Cormorant',serif;font-size:13px;font-weight:700;letter-spacing:1.5px;padding:7px 18px;border-radius:999px;transition:background .25s,color .25s;color:rgba(200,223,201,.55);}
+.lang-opt.active{background:var(--green-dark);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+[dir="rtl"] .detail-row{text-align:right;}
+[dir="rtl"] .detail-row-body{text-align:right;}
+[dir="rtl"] .wish-card{text-align:right;}
+[dir="rtl"] .wish-input-container label{text-align:right;}
+[dir="rtl"] .letter-paper h3{text-align:right;}
+[dir="rtl"] .letter-paper p{text-align:right;}
+[dir="rtl"] .letter-paper div{text-align:left;}
+
 .cbox{background:linear-gradient(135deg,#e8f5e8,#f0ede8);border:1px solid var(--sage-light);border-radius:14px;padding:22px 20px;min-width:82px;text-align:center;transition:transform .2s;box-shadow:0 4px 20px rgba(100,160,100,.1);}
 .cbox:hover{transform:scale(1.06);}
-.cnum{font-size:clamp(32px,6vw,52px);font-weight:300;color:var(--green-dark);line-height:1;}
-.clbl{font-size:12px;letter-spacing:clamp(1px,1vw,4px);color:var(--green-mid);margin-top:8px;text-transform:uppercase;}
+.cnum{font-family:'Cormorant',serif;font-size:clamp(56px,10vw,88px);font-weight:400;color:var(--green-dark);line-height:1;}
+.clbl{font-family:'Cormorant',serif;font-size:12px;letter-spacing:clamp(1px,1vw,4px);color:var(--green-mid);margin-top:8px;text-transform:uppercase;}
 
 #venue-bg{position:absolute;inset:-30px;background-size:cover;background-position:center 80%;will-change:transform;transition:transform .1s linear;}
 #venue-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,30,10,.5),rgba(30,60,30,.7));}
@@ -101,12 +115,11 @@ html{scroll-behavior:smooth;}
 
 .scratch-wrapper{display:flex;justify-content:center;gap:clamp(12px,3vw,28px);flex-wrap:wrap;margin:32px 0;}
 .scratch-item{display:flex;flex-direction:column;align-items:center;gap:12px;}
-.scratch-label{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:3px;color:var(--green-mid);text-transform:uppercase;}
+.scratch-label{font-family:'Cormorant',serif;font-size:11px;letter-spacing:3px;color:var(--green-mid);text-transform:uppercase;}
 .scratch-circle-container{position:relative;width:100px;height:100px;border-radius:50%;overflow:hidden;cursor:crosshair;box-shadow:0 4px 20px rgba(100,160,100,.2),0 0 0 3px var(--sage-light);}
 .scratch-reveal{position:absolute;inset:0;background:linear-gradient(135deg,#f0f8f0,var(--cream));display:flex;align-items:center;justify-content:center;border-radius:50%;}
-.scratch-reveal-text{font-family:'Lato',sans-serif;font-size:clamp(22px,5vw,30px);font-weight:600;color:var(--green-dark);letter-spacing:2px;}
+.scratch-reveal-text{font-family:'Cormorant',serif;font-size:clamp(38px,9vw,52px);font-weight:600;color:var(--green-dark);letter-spacing:2px;}
 .scratch-canvas{position:absolute;inset:0;border-radius:50%;cursor:crosshair;}
-.scratch-hint{font-size:11px;color:var(--text-light);font-style:italic;letter-spacing:1px;text-align:center;}
 
 .letter-container{max-width:500px;margin:40px auto;position:relative;perspective:1000px;}
 .letter-pocket{background:var(--green-dark);border:1px solid var(--sage);border-radius:8px;height:150px;position:relative;box-shadow:0 8px 30px rgba(0,0,0,0.3);z-index:2;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;}
@@ -119,7 +132,7 @@ html{scroll-behavior:smooth;}
 .wish-card:hover{transform:scale(1.04) rotate(0deg)!important;box-shadow:0 8px 24px rgba(100,160,100,0.15);z-index:5;}
 .wish-card::before{content:"📌";position:absolute;top:5px;right:8px;font-size:14px;opacity:0.8;}
 .wish-name{font-family:'Cinzel',serif;font-size:14px;color:var(--green-dark);margin-bottom:8px;border-bottom:1px dashed rgba(155,190,150,0.5);padding-bottom:4px;}
-.wish-text{font-style:italic;font-size:15px;color:var(--text-mid);line-height:1.5;}
+.wish-text{font-family:'Cormorant',serif;font-style:italic;font-size:15px;color:var(--text-mid);line-height:1.5;}
 .wish-input-container{max-width:500px;margin:0 auto 40px;background:#fff;padding:30px;border-radius:8px;border:1px solid var(--sage-light);box-shadow:0 4px 15px rgba(100,160,100,0.05);}
 
 .quran-verse{font-family:'Amiri',serif;font-size:clamp(18px,3.5vw,26px);line-height:2;color:var(--green-dark);text-align:center;direction:rtl;max-width:680px;margin:0 auto 8px;}
@@ -128,16 +141,13 @@ html{scroll-behavior:smooth;}
 .detail-row{display:flex;align-items:center;gap:20px;padding:22px 0;text-align:left;}
 .detail-row-icon{width:48px;height:48px;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,var(--sage-pale),var(--mint));border:1px solid var(--sage-light);display:flex;align-items:center;justify-content:center;font-size:20px;}
 .detail-row-body{flex:1;}
-.detail-row-label{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:3px;color:var(--green-mid);text-transform:uppercase;margin-bottom:4px;}
+.detail-row-label{font-family:'Cormorant',serif;font-size:10px;letter-spacing:3px;color:var(--green-mid);text-transform:uppercase;margin-bottom:4px;}
 .detail-row-value{font-family:'Pinyon Script',cursive;font-style:italic;font-size:clamp(22px,4vw,28px);color:var(--text-dark);line-height:1.3;}
-.detail-row-note{font-size:13px;color:var(--text-light);margin-top:2px;font-family:'Lato',sans-serif;}
+.detail-row-note{font-size:13px;color:var(--text-light);margin-top:2px;font-family:'Cormorant',serif;}
 .detail-sep{height:1px;background:linear-gradient(90deg,transparent,var(--sage-light) 20%,var(--blush) 50%,var(--sage-light) 80%,transparent);position:relative;}
 .detail-sep::after{content:'✿';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:11px;color:var(--rose);background:linear-gradient(160deg,#f5fbf5,#fdf0f5);padding:0 10px;}
 
 .map-container{max-width:800px;margin:30px auto 0;border-radius:8px;overflow:hidden;border:2px solid var(--sage-light);position:relative;z-index:2;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-.map-btn-container{text-align:center;margin-top:20px;}
-.map-btn{display:inline-block;padding:12px 30px;background:var(--green-dark);color:#fff;border-radius:30px;text-decoration:none;font-family:'Lato',sans-serif;font-size:14px;letter-spacing:1px;transition:background 0.3s;}
-.map-btn:hover{background:var(--olive-dark);}
 
 .name-shimmer{position:relative;display:inline-block;min-height:1.15em;transition:width 0.3s;}
 .green-spark{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--olive-dark);pointer-events:none;animation:goldParticle 1.2s ease-out forwards;}
@@ -150,10 +160,10 @@ html{scroll-behavior:smooth;}
   .quran-verse{font-size:clamp(16px,4.5vw,20px)!important;}
   .quran-bismillah{font-size:clamp(15px,4vw,18px)!important;}
   .scratch-circle-container{width:82px;height:82px;}
-  .scratch-reveal-text{font-size:22px!important;}
+  .scratch-reveal-text{font-size:32px!important;}
   .scratch-wrapper{gap:10px;}
   .cbox{min-width:68px;padding:16px 12px;}
-  .cnum{font-size:clamp(28px,8vw,40px);}
+  .cnum{font-size:clamp(46px,12vw,70px);}
   .detail-row{flex-direction:column;gap:10px;padding:18px 0;text-align:center;align-items:center;}
   .detail-row-body{text-align:center;}
   .detail-row-icon{width:40px;height:40px;font-size:17px;}
@@ -175,7 +185,6 @@ html{scroll-behavior:smooth;}
 </style>
 <script>
 (function(){
-  // Keep loading monogram hidden until Pinyon Script is confirmed loaded
   var style = document.createElement('style');
   style.textContent = '.loading-monogram { visibility: hidden; }';
   document.head.appendChild(style);
@@ -190,7 +199,6 @@ html{scroll-behavior:smooth;}
 <body>
 <div class="film-grain"></div>
 
-<!-- Side-Facing Lily SVG Symbol without Stamens -->
 <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
   <symbol id="lily" viewBox="0 0 100 120">
     <g transform="translate(50,50)">
@@ -234,6 +242,12 @@ html{scroll-behavior:smooth;}
   <source src="music.m4a" type="audio/mp4">
 </audio>
 <button id="music-btn" onclick="toggleMusic()" title="Toggle music">🔇</button>
+<button id="lang-btn" onclick="toggleLang()" title="Switch language">
+  <div id="lang-pill">
+    <span class="lang-opt active" id="lbl-en">EN</span>
+    <span class="lang-opt" id="lbl-ar">عربي</span>
+  </div>
+</button>
 
 <!-- ══ ENVELOPE SCREEN ══ -->
 <div id="envelope-screen">
@@ -248,35 +262,29 @@ html{scroll-behavior:smooth;}
       <path d="M8 265 L200 160 L392 265" fill="none" stroke="#A8B868" stroke-width=".8" opacity=".6"/>
       
       <g id="seal-group" style="cursor:pointer;" onclick="openEnvelope()">
-        <!-- Wax seal base with scalloped edge -->
-        <circle cx="200" cy="185" r="44" fill="#e8a8b8" opacity="0.4"/>
+        <circle cx="200" cy="185" r="44" fill="#E8D8A8" opacity="0.4"/>
         <circle cx="200" cy="185" r="42" fill="url(#waxGrad)"/>
-        <!-- scalloped border -->
-        <circle cx="200" cy="185" r="38" fill="none" stroke="#c07888" stroke-width="1.2" stroke-dasharray="3,2.5" opacity="0.7"/>
-        <circle cx="200" cy="185" r="33" fill="none" stroke="#c07888" stroke-width="0.6" opacity="0.4"/>
-        <!-- A slightly lower-right, same color, partial overlap -->
-        <text x="200" y="190" text-anchor="middle" dominant-baseline="central"
-              font-size="30" fill="#8a3040"
+        <circle cx="200" cy="185" r="38" fill="none" stroke="#B8A870" stroke-width="1.2" stroke-dasharray="3,2.5" opacity="0.7"/>
+        <circle cx="200" cy="185" r="33" fill="none" stroke="#B8A870" stroke-width="0.6" opacity="0.4"/>
+        <text x="200" y="192" text-anchor="middle" dominant-baseline="central"
+              font-size="36" fill="#1a3020"
               font-family="Pinyon Script, cursive">A</text>
-        <!-- K slightly upper-left, same color -->
-        <text x="188" y="181" text-anchor="middle" dominant-baseline="central"
-              font-size="30" fill="#8a3040"
+        <text x="186" y="180" text-anchor="middle" dominant-baseline="central"
+              font-size="36" fill="#1a3020"
               font-family="Pinyon Script, cursive">K</text>
-        <!-- gradient def -->
         <defs>
           <radialGradient id="waxGrad" cx="42%" cy="38%" r="58%">
-            <stop offset="0%" stop-color="#F9D0DA"/>
-            <stop offset="55%" stop-color="#F0B8C8"/>
-            <stop offset="100%" stop-color="#D898A8"/>
+            <stop offset="0%" stop-color="#FBF5E6"/>
+            <stop offset="55%" stop-color="#F0E4C8"/>
+            <stop offset="100%" stop-color="#D8C89A"/>
           </radialGradient>
         </defs>
       </g>
-      
     </svg>
     <div style="margin-top:22px;text-align:center;">
       <div style="font-family:'Pinyon Script',cursive;font-size:28px;color:#fdf8f5;letter-spacing:2px;opacity:.9;">Khaled &amp; Alaa</div>
     </div>
-    <div class="hint-pulse" style="margin-top:40px;color:#c8dfc9;font-size:14px;letter-spacing:5px;text-transform:uppercase;opacity:.85;">✦ Click the seal to open ✦</div>
+    <div class="hint-pulse" style="margin-top:40px;color:#c8dfc9;font-size:14px;letter-spacing:5px;text-transform:uppercase;opacity:.85;font-family:'Cormorant',serif;">✦ Click the seal to open ✦</div>
   </div>
 </div>
 
@@ -292,51 +300,7 @@ html{scroll-behavior:smooth;}
     <div style="position:absolute;bottom:-10px;left:0;opacity:.12;pointer-events:none;animation:floralSway 8s ease-in-out infinite;"><svg width="90" height="110"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:-10px;right:0;opacity:.12;pointer-events:none;animation:floralSway 5.5s ease-in-out infinite reverse;"><svg width="90" height="110"><use href="#lily"/></svg></div>
 
-    <!-- Arabic names — layered overlap exactly like reference: فرح on top-right, أسامة large behind-left -->
-    <div class="fade-section" style="animation-delay:.05s;margin-bottom:28px;position:relative;display:flex;justify-content:center;">
-      <div style="position:relative;width:clamp(300px,70vw,500px);height:clamp(190px,29vw,270px);direction:rtl;">
-        <span id="name-alaa" class="name-shimmer" style="
-          font-family:'Amiri',serif;
-          font-size:clamp(68px,14vw,124px);
-          font-weight:700;
-          color:var(--text-dark);
-          position:absolute;
-          top:0;
-          right:clamp(20px,5vw,50px);
-          line-height:1;
-          z-index:2;
-          white-space:nowrap;
-        ">آلاء</span>
-        <!-- & sign placed diagonally between the two names -->
-        <span style="
-          font-family:'Pinyon Script',cursive;
-          font-size:clamp(36px,7vw,60px);
-          color:var(--deep-rose);
-          position:absolute;
-          top:clamp(34px,6vw,64px);
-          left:50%;
-          transform:translateX(-50%) rotate(-15deg);
-          z-index:3;
-          white-space:nowrap;
-          line-height:1;
-        ">&</span>
-        <span id="name-khaled" class="name-shimmer" style="
-          font-family:'Amiri',serif;
-          font-size:clamp(88px,19vw,162px);
-          font-weight:700;
-          color:var(--text-dark);
-          position:absolute;
-          top:clamp(42px,8vw,78px);
-          left:0;
-          line-height:1;
-          z-index:1;
-          white-space:nowrap;
-        ">خالد</span>
-      </div>
-    </div>
-
-    <!-- Quran verse -->
-    <div class="fade-section" style="animation-delay:.18s;margin-bottom:32px;max-width:700px;margin-left:auto;margin-right:auto;">
+    <div class="fade-section" style="animation-delay:.05s;margin-bottom:32px;max-width:700px;margin-left:auto;margin-right:auto;">
       <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px;opacity:.55;">
         <svg width="120" height="8" viewBox="0 0 120 8"><line x1="0" y1="4" x2="50" y2="4" stroke="#e89aaa" stroke-width=".8"/><circle cx="60" cy="4" r="2.5" fill="#e89aaa"/><line x1="70" y1="4" x2="120" y2="4" stroke="#e89aaa" stroke-width=".8"/></svg>
         <svg width="35" height="45"><use href="#lily"/></svg>
@@ -351,63 +315,47 @@ html{scroll-behavior:smooth;}
       </div>
     </div>
 
-    <!-- English text: Together with our families… -->
+    <div class="fade-section" style="animation-delay:.18s;margin-bottom:28px;position:relative;display:flex;justify-content:center;">
+      <div style="position:relative;width:clamp(300px,70vw,500px);height:clamp(190px,29vw,270px);direction:rtl;">
+        <span id="name-alaa" class="name-shimmer" style="font-family:'Amiri',serif;font-size:clamp(68px,14vw,124px);font-weight:700;color:var(--text-dark);position:absolute;top:0;right:clamp(20px,5vw,50px);line-height:1;z-index:2;white-space:nowrap;">آلاء</span>
+        <span style="font-family:'Pinyon Script',cursive;font-size:clamp(36px,7vw,60px);color:var(--deep-rose);position:absolute;top:clamp(34px,6vw,64px);left:50%;transform:translateX(-50%) rotate(-15deg);z-index:3;white-space:nowrap;line-height:1;">&</span>
+        <span id="name-khaled" class="name-shimmer" style="font-family:'Amiri',serif;font-size:clamp(88px,19vw,162px);font-weight:700;color:var(--text-dark);position:absolute;top:clamp(42px,8vw,78px);left:0;line-height:1;z-index:1;white-space:nowrap;">خالد</span>
+      </div>
+    </div>
+
     <div class="fade-section" style="animation-delay:.32s;margin-bottom:8px;">
       <svg width="200" height="18" viewBox="0 0 200 18"><line x1="0" y1="9" x2="82" y2="9" stroke="#9dbf9e" stroke-width=".8"/><text x="100" y="14" text-anchor="middle" font-size="13" fill="#e89aaa" font-family="serif">❧</text><line x1="118" y1="9" x2="200" y2="9" stroke="#9dbf9e" stroke-width=".8"/></svg>
     </div>
-    <p class="fade-section tagline" style="color:var(--deep-rose);margin-bottom:10px;animation-delay:.36s;">Together with our families</p>
-    <p class="fade-section" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,32px);font-weight:600;font-style:italic;color:var(--text-mid);margin-bottom:6px;animation-delay:.42s;">request the honour of your presence</p>
-    <p class="fade-section" style="font-family:'Lato',sans-serif;font-size:clamp(14px,2.5vw,18px);color:var(--text-light);animation-delay:.48s;">at the celebration of our wedding</p>
-
+    <p class="fade-section tagline" style="color:var(--deep-rose);margin-bottom:10px;animation-delay:.36s;font-family:'Cormorant',serif;" id="hero-tagline" data-font-swap>Together with our families</p>
+    <p class="fade-section" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,32px);font-weight:600;font-style:italic;color:var(--text-mid);margin-bottom:6px;animation-delay:.42s;" id="hero-subtitle">request the honour of your presence</p>
+    <p class="fade-section" style="font-family:'Cormorant',serif;font-size:clamp(14px,2.5vw,18px);color:var(--text-light);animation-delay:.48s;" id="hero-caption" data-font-swap>at the celebration of our wedding</p>
     <div class="fade-section divider-stars" style="color:var(--rose);animation:shimmerGold 3s ease-in-out infinite;animation-delay:.72s;">✦ ✦ ✦</div>
   </section>
 
-  <!-- SCRATCH DATE SECTION -->
+  <!-- SCRATCH DATE -->
   <section class="reveal-section" style="background:linear-gradient(160deg,#e8f5e8,#fdf0f5);padding:72px 24px;text-align:center;position:relative;overflow:hidden;">
     <div style="position:absolute;top:10px;left:10px;opacity:.1;pointer-events:none;"><svg width="80" height="100"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:10px;right:10px;opacity:.1;pointer-events:none;"><svg width="80" height="100"><use href="#lily"/></svg></div>
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--green-mid);margin-bottom:10px;">Save the Date</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:16px;">Scratch to Reveal the Date</h2>
-    <p class="reveal-child reveal-delay-3" style="font-family:'Lato',sans-serif;font-style:italic;font-size:15px;color:var(--text-light);margin-bottom:36px;">Scratch each circle to reveal our wedding date</p>
-
+    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--green-mid);margin-bottom:10px;font-family:'Cormorant',serif;" id="scratch-tagline" data-font-swap>Save the Date</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:16px;" id="scratch-title">Scratch to Reveal the Date</h2>
+    <p class="reveal-child reveal-delay-3" style="font-family:'Cormorant',serif;font-style:italic;font-size:15px;color:var(--text-light);margin-bottom:36px;" id="scratch-sub" data-font-swap>Scratch each circle to reveal our wedding date</p>
     <div class="reveal-child reveal-delay-3 scratch-wrapper">
-      <div class="scratch-item">
-        <div class="scratch-label">Day</div>
-        <div class="scratch-circle-container" id="scratch-0">
-          <div class="scratch-reveal"><span class="scratch-reveal-text">26</span></div>
-          <canvas class="scratch-canvas" id="canvas-0"></canvas>
-        </div>
-      </div>
-      <div class="scratch-item">
-        <div class="scratch-label">Month</div>
-        <div class="scratch-circle-container" id="scratch-1">
-          <div class="scratch-reveal"><span class="scratch-reveal-text">06</span></div>
-          <canvas class="scratch-canvas" id="canvas-1"></canvas>
-        </div>
-      </div>
-      <div class="scratch-item">
-        <div class="scratch-label">Year</div>
-        <div class="scratch-circle-container" id="scratch-2">
-          <div class="scratch-reveal"><span class="scratch-reveal-text">2026</span></div>
-          <canvas class="scratch-canvas" id="canvas-2"></canvas>
-        </div>
-      </div>
+      <div class="scratch-item"><div class="scratch-label" id="scratch-lbl-0" data-font-swap>Day</div><div class="scratch-circle-container" id="scratch-0"><div class="scratch-reveal"><span class="scratch-reveal-text">26</span></div><canvas class="scratch-canvas" id="canvas-0"></canvas></div></div>
+      <div class="scratch-item"><div class="scratch-label" id="scratch-lbl-1" data-font-swap>Month</div><div class="scratch-circle-container" id="scratch-1"><div class="scratch-reveal"><span class="scratch-reveal-text">06</span></div><canvas class="scratch-canvas" id="canvas-1"></canvas></div></div>
+      <div class="scratch-item"><div class="scratch-label" id="scratch-lbl-2" data-font-swap>Year</div><div class="scratch-circle-container" id="scratch-2"><div class="scratch-reveal"><span class="scratch-reveal-text">2026</span></div><canvas class="scratch-canvas" id="canvas-2"></canvas></div></div>
     </div>
-
-    <div class="reveal-child reveal-delay-4" style="margin-top:8px;">
-      <svg width="200" height="14" viewBox="0 0 200 14"><line x1="0" y1="7" x2="85" y2="7" stroke="#9dbf9e" stroke-width=".7"/><text x="100" y="11" text-anchor="middle" font-size="11" fill="#e89aaa" font-family="serif">♡</text><line x1="115" y1="7" x2="200" y2="7" stroke="#9dbf9e" stroke-width=".7"/></svg>
-    </div>
+    <div class="reveal-child reveal-delay-4" style="margin-top:8px;"><svg width="200" height="14" viewBox="0 0 200 14"><line x1="0" y1="7" x2="85" y2="7" stroke="#9dbf9e" stroke-width=".7"/><text x="100" y="11" text-anchor="middle" font-size="11" fill="#e89aaa" font-family="serif">♡</text><line x1="115" y1="7" x2="200" y2="7" stroke="#9dbf9e" stroke-width=".7"/></svg></div>
   </section>
 
-  <!-- LOVE QUOTE SECTION -->
+  <!-- LOVE QUOTE -->
   <section class="reveal-section" style="background:linear-gradient(135deg,#2a4a34,#1a3020);padding:56px 24px;text-align:center;position:relative;overflow:hidden;">
     <div style="position:absolute;top:-10px;left:-10px;opacity:.1;pointer-events:none;line-height:1;"><svg width="120" height="150"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:-10px;right:-10px;opacity:.1;pointer-events:none;line-height:1;"><svg width="120" height="150"><use href="#lily"/></svg></div>
     <div class="reveal-child reveal-delay-1" style="margin-bottom:18px;opacity:.6;">
       <svg width="160" height="10" viewBox="0 0 160 10"><line x1="0" y1="5" x2="65" y2="5" stroke="#c8dfc9" stroke-width=".8"/><text x="80" y="9" text-anchor="middle" font-size="10" fill="#f9c8d4" font-family="serif">✿</text><line x1="95" y1="5" x2="160" y2="5" stroke="#c8dfc9" stroke-width=".8"/></svg>
     </div>
-    <p class="reveal-child reveal-delay-1" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,34px);color:#fdf8f5;max-width:580px;margin:0 auto;line-height:1.8;letter-spacing:.4px;">"I love you not only for what you are, but for what I am when I am with you."</p>
-    <p class="reveal-child reveal-delay-2" style="font-family:'Lato',sans-serif;font-size:12px;color:var(--sage-light);margin-top:18px;letter-spacing:clamp(2px,1.2vw,4px);">— Roy Croft</p>
+    <p class="reveal-child reveal-delay-1" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,34px);color:#fdf8f5;max-width:580px;margin:0 auto;line-height:1.8;letter-spacing:.4px;" id="love-quote-text">"I love you not only for what you are, but for what I am when I am with you."</p>
+    <p class="reveal-child reveal-delay-2" style="font-family:'Cormorant',serif;font-size:12px;color:var(--sage-light);margin-top:18px;letter-spacing:clamp(2px,1.2vw,4px);" id="love-quote-author" data-font-swap>— Roy Croft</p>
     <div class="reveal-child reveal-delay-3" style="margin-top:18px;opacity:.6;">
       <svg width="160" height="10" viewBox="0 0 160 10"><line x1="0" y1="5" x2="65" y2="5" stroke="#c8dfc9" stroke-width=".8"/><text x="80" y="9" text-anchor="middle" font-size="10" fill="#f9c8d4" font-family="serif">✿</text><line x1="95" y1="5" x2="160" y2="5" stroke="#c8dfc9" stroke-width=".8"/></svg>
     </div>
@@ -417,108 +365,83 @@ html{scroll-behavior:smooth;}
   <section class="reveal-section" style="background:linear-gradient(160deg,#f0f8f0,#fdf0f5);padding:72px 24px;text-align:center;position:relative;overflow:hidden;">
     <div style="position:absolute;top:20px;left:20px;opacity:.1;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:20px;right:20px;opacity:.1;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;">Counting down to</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:44px;">Our Big Day</h2>
-    <div class="reveal-child reveal-delay-3" style="display:flex;justify-content:center;gap:clamp(10px,2.5vw,28px);flex-wrap:wrap;">
-      <div class="cbox"><div class="cnum" id="cd-days">--</div><div class="clbl">Days</div></div>
-      <div class="cbox"><div class="cnum" id="cd-hours">--</div><div class="clbl">Hours</div></div>
-      <div class="cbox"><div class="cnum" id="cd-mins">--</div><div class="clbl">Minutes</div></div>
-      <div class="cbox"><div class="cnum" id="cd-secs">--</div><div class="clbl">Seconds</div></div>
+    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;font-family:'Cormorant',serif;" id="cd-tagline" data-font-swap>Counting down to</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:44px;" id="cd-title">Our Big Day</h2>
+    <div class="reveal-child reveal-delay-3" style="display:flex;justify-content:center;gap:clamp(10px,2.5vw,28px);flex-wrap:wrap;direction:ltr;">
+      <div class="cbox"><div class="cnum" id="cd-days">--</div><div class="clbl" id="cd-lbl-days" data-font-swap>Days</div></div>
+      <div class="cbox"><div class="cnum" id="cd-hours">--</div><div class="clbl" id="cd-lbl-hours" data-font-swap>Hours</div></div>
+      <div class="cbox"><div class="cnum" id="cd-mins">--</div><div class="clbl" id="cd-lbl-mins" data-font-swap>Minutes</div></div>
+      <div class="cbox"><div class="cnum" id="cd-secs">--</div><div class="clbl" id="cd-lbl-secs" data-font-swap>Seconds</div></div>
     </div>
-    <p class="reveal-child reveal-delay-4" style="margin-top:44px;font-family:'Lato',sans-serif;font-style:italic;font-size:17px;color:var(--text-mid);">Every second brings us closer to forever ♡</p>
+    <p class="reveal-child reveal-delay-4" style="margin-top:44px;font-family:'Cormorant',serif;font-style:italic;font-size:17px;color:var(--text-mid);" id="cd-caption" data-font-swap>Every second brings us closer to forever ♡</p>
   </section>
 
   <div class="green-divider"></div>
 
-  <!-- VENUE SECTION -->
+  <!-- VENUE -->
   <section id="venue-section" class="reveal-section" style="position:relative;min-height:500px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
     <div id="venue-bg" style="background-image:url('venue.jpeg')"></div>
     <div id="venue-overlay"></div>
     <div id="venue-petals"></div>
     <div id="venue-content">
-      <p class="reveal-child reveal-delay-1 tagline" style="color:var(--sage-light);margin-bottom:14px;">Our Celebration Venue</p>
+      <p class="reveal-child reveal-delay-1 tagline" style="color:var(--sage-light);margin-bottom:14px;font-family:'Cormorant',serif;" id="venue-tagline" data-font-swap>Our Celebration Venue</p>
       <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:#fdf8f5;margin-bottom:14px;">Taj Wedding Venue</h2>
       <div class="reveal-child reveal-delay-3" style="width:60px;height:1px;background:var(--sage);margin:18px auto;"></div>
-      <p class="reveal-child reveal-delay-3" style="font-family:'Lato',sans-serif;font-size:clamp(13px,2vw,16px);color:#d8eed8;letter-spacing:clamp(1px,0.8vw,3px);margin-bottom:20px;">26 / 6 / 2026 &nbsp;·&nbsp; 6:00 PM</p>
+      <p class="reveal-child reveal-delay-3" style="font-family:'Cormorant',serif;font-size:clamp(13px,2vw,16px);color:#d8eed8;letter-spacing:clamp(1px,0.8vw,3px);margin-bottom:20px;">26 / 6 / 2026 &nbsp;·&nbsp; 6:00 PM</p>
     </div>
   </section>
 
-  <!-- MAP SECTION -->
+  <!-- MAP -->
   <section class="reveal-section" style="background:linear-gradient(160deg,#f5fbf5,#fdf0f5);padding:50px 24px;text-align:center;position:relative;overflow:hidden;">
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:14px;">Find Your Way</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,36px);font-weight:600;color:var(--text-dark);margin-bottom:24px;">Venue Location</h2>
-    
+    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:14px;font-family:'Cormorant',serif;" id="map-tagline" data-font-swap>Find Your Way</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,36px);font-weight:600;color:var(--text-dark);margin-bottom:24px;" id="map-title">Venue Location</h2>
     <div class="reveal-child reveal-delay-3 map-container" style="position:relative;">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.7452085917744!2d31.22433331514457!3d30.04592298188239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846c4360bc8c3%3A0x58f55eaf5ba04a33!2sTaj%20Wedding%20Venue!5e0!3m2!1sen!2seg!4v1678888888888!5m2!1sen!2seg" width="100%" height="300" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <a href="https://maps.app.goo.gl/Aj2xbtFPUeE2qx1m9" target="_blank" style="position:absolute;inset:0;z-index:10;display:block;" aria-label="Open in Google Maps"></a>
     </div>
     <div class="reveal-child reveal-delay-4" style="text-align:center;margin-top:14px;">
-      <p style="font-family:'Lato',sans-serif;font-size:13px;color:var(--text-light);font-style:italic;letter-spacing:1px;">📍 Click on the map to open in Google Maps</p>
+      <p style="font-family:'Cormorant',serif;font-size:13px;color:var(--text-light);font-style:italic;letter-spacing:1px;" id="map-hint" data-font-swap>📍 Click on the map to open in Google Maps</p>
     </div>
   </section>
 
   <div class="green-divider"></div>
 
-  <!-- OUR WEDDING DETAILS -->
+  <!-- WEDDING DETAILS -->
   <section class="reveal-section" style="background:linear-gradient(160deg,#f5fbf5,#fdf0f5);padding:72px 24px;text-align:center;position:relative;overflow:hidden;">
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--green-mid);margin-bottom:10px;">Everything you need to know</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:14px;">Our Wedding Details</h2>
+    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--green-mid);margin-bottom:10px;font-family:'Cormorant',serif;" id="details-tagline" data-font-swap>Everything you need to know</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:14px;" id="details-title">Our Wedding Details</h2>
     <div class="reveal-child reveal-delay-2" style="text-align:center;margin-bottom:44px;">
       <svg width="160" height="14" viewBox="0 0 160 14"><line x1="0" y1="7" x2="65" y2="7" stroke="#9dbf9e" stroke-width=".8"/><text x="80" y="11" text-anchor="middle" font-size="11" fill="#e89aaa" font-family="serif">♡</text><line x1="95" y1="7" x2="160" y2="7" stroke="#9dbf9e" stroke-width=".8"/></svg>
     </div>
-
     <div class="reveal-child reveal-delay-3 details-list">
       <div class="detail-row">
         <div class="detail-row-icon">🕕</div>
-        <div class="detail-row-body">
-          <div class="detail-row-label">Ceremony Time</div>
-          <div class="detail-row-value">6:00 in the Evening</div>
-        </div>
+        <div class="detail-row-body"><div class="detail-row-label" id="detail-label-0" data-font-swap>Ceremony Time</div><div class="detail-row-value" id="detail-value-0">6:00 in the Evening</div></div>
       </div>
       <div class="detail-sep"></div>
       <div class="detail-row">
         <div class="detail-row-icon">🎩</div>
-        <div class="detail-row-body">
-          <div class="detail-row-label">Dress Code</div>
-          <div class="detail-row-value">Black Tie &amp; Soirée</div>
-          <div class="detail-row-note">Formal evening attire</div>
-        </div>
+        <div class="detail-row-body"><div class="detail-row-label" id="detail-label-1" data-font-swap>Dress Code</div><div class="detail-row-value" id="detail-value-1">Black Tie &amp; Soirée</div><div class="detail-row-note" id="detail-note-1" data-font-swap>Formal evening attire</div></div>
       </div>
       <div class="detail-sep"></div>
       <div class="detail-row">
         <div class="detail-row-icon">📍</div>
-        <div class="detail-row-body">
-          <div class="detail-row-label">Venue</div>
-          <div class="detail-row-value">Taj Wedding Venue</div>
-          <div class="detail-row-note">June 26, 2026</div>
-        </div>
+        <div class="detail-row-body"><div class="detail-row-label" id="detail-label-2" data-font-swap>Venue</div><div class="detail-row-value" id="detail-value-2">Taj Wedding Venue</div><div class="detail-row-note" id="detail-note-2" data-font-swap>June 26, 2026</div></div>
       </div>
       <div class="detail-sep"></div>
       <div class="detail-row">
         <div class="detail-row-icon">✿</div>
-        <div class="detail-row-body">
-          <div class="detail-row-label">Theme</div>
-          <div class="detail-row-value">Garden Romance</div>
-          <div class="detail-row-note">Blush, olive &amp; ivory lilies</div>
-        </div>
+        <div class="detail-row-body"><div class="detail-row-label" id="detail-label-3" data-font-swap>Theme</div><div class="detail-row-value" id="detail-value-3">Garden Romance</div><div class="detail-row-note" id="detail-note-3" data-font-swap>Blush, olive &amp; ivory lilies</div></div>
       </div>
       <div class="detail-sep"></div>
       <div class="detail-row">
         <div class="detail-row-icon">🥂</div>
-        <div class="detail-row-body">
-          <div class="detail-row-label">Evening</div>
-          <div class="detail-row-value">Dinner &amp; Dancing</div>
-          <div class="detail-row-note">Celebrate with us until midnight</div>
-        </div>
+        <div class="detail-row-body"><div class="detail-row-label" id="detail-label-4" data-font-swap>Evening</div><div class="detail-row-value" id="detail-value-4">Dinner &amp; Dancing</div><div class="detail-row-note" id="detail-note-4" data-font-swap>Celebrate with us until midnight</div></div>
       </div>
       <div class="detail-sep"></div>
       <div class="detail-row">
         <div class="detail-row-icon">💐</div>
-        <div class="detail-row-body">
-          <div class="detail-row-label">Gifts</div>
-          <div class="detail-row-value">Your Presence</div>
-          <div class="detail-row-note">Is the greatest gift of all</div>
-        </div>
+        <div class="detail-row-body"><div class="detail-row-label" id="detail-label-5" data-font-swap>Gifts</div><div class="detail-row-value" id="detail-value-5">Your Presence</div><div class="detail-row-note" id="detail-note-5" data-font-swap>Is the greatest gift of all</div></div>
       </div>
     </div>
   </section>
@@ -527,21 +450,20 @@ html{scroll-behavior:smooth;}
 
   <!-- LOVE LETTER -->
   <section class="reveal-section" style="background:linear-gradient(160deg,#f0f8f0,#fdf5f8);padding:72px 24px;text-align:center;">
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;">A Message for You</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:14px;">Love Letter</h2>
-    <p class="reveal-child reveal-delay-2" style="font-family:'Lato',sans-serif;font-style:italic;font-size:16px;color:var(--text-mid);margin-bottom:32px;">Click the seal below to reveal our message to you.</p>
-
+    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;font-family:'Cormorant',serif;" id="letter-tagline" data-font-swap>A Message for You</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:14px;" id="letter-title">Love Letter</h2>
+    <p class="reveal-child reveal-delay-2" style="font-family:'Cormorant',serif;font-style:italic;font-size:16px;color:var(--text-mid);margin-bottom:32px;" id="letter-sub" data-font-swap>Click the seal below to reveal our message to you.</p>
     <div class="reveal-child reveal-delay-3 letter-container" id="love-letter-widget">
       <div class="letter-paper">
-        <h3 style="font-family:'Pinyon Script',cursive;color:var(--green-dark);font-size:24px;margin-bottom:14px;border-bottom:1px dashed var(--sage-light);padding-bottom:8px;text-align:left;">Dearest Family &amp; Friends,</h3>
-        <p style="font-family:'Lato',sans-serif;font-style:italic;font-size:15px;color:var(--text-mid);line-height:1.75;margin-bottom:16px;text-align:left;">
+        <h3 id="letter-greeting" style="font-family:'Pinyon Script',cursive;color:var(--green-dark);font-size:24px;margin-bottom:14px;border-bottom:1px dashed var(--sage-light);padding-bottom:8px;text-align:left;">Dearest Family &amp; Friends,</h3>
+        <p id="letter-body" style="font-family:'Cormorant',serif;font-style:italic;font-size:15px;color:var(--text-mid);line-height:1.75;margin-bottom:16px;text-align:left;" data-font-swap>
           Having you by our side as we begin our lifetime of love is the greatest blessing we could ever ask for. Your prayers, your smiles, and your presence mean the world to us. Thank you for sharing in our joy — we can't wait to celebrate and dance the night away with you under the stars!
         </p>
-        <div style="font-family:'Pinyon Script',cursive;font-size:20px;font-style:italic;color:var(--deep-rose);text-align:right;">— Khaled &amp; Alaa</div>
+        <div id="letter-sign" style="font-family:'Pinyon Script',cursive;font-size:20px;font-style:italic;color:var(--deep-rose);text-align:right;">— Khaled &amp; Alaa</div>
       </div>
       <div class="letter-pocket" onclick="toggleLoveLetter()">
         <div class="letter-seal">💌</div>
-        <div style="position:absolute;bottom:15px;color:#fdf8f5;font-size:11px;letter-spacing:clamp(1px,0.8vw,3px);font-family:'Lato',sans-serif;text-transform:uppercase;">Click to Read</div>
+        <div id="letter-cta" style="position:absolute;bottom:15px;color:#fdf8f5;font-size:11px;letter-spacing:clamp(1px,0.8vw,3px);font-family:'Cormorant',serif;text-transform:uppercase;" data-font-swap>Click to Read</div>
       </div>
     </div>
   </section>
@@ -551,23 +473,21 @@ html{scroll-behavior:smooth;}
   <!-- WISHES WALL -->
   <section id="wishes-section" class="reveal-section" style="background:linear-gradient(160deg,#f5fbf5,#fdf0f5);padding:72px 24px;text-align:center;">
     <div style="position:absolute;top:20px;right:20px;opacity:.12;pointer-events:none;"><svg width="60" height="75"><use href="#lily"/></svg></div>
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;">Digital Guestbook</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:14px;">Wishes Wall</h2>
-    <p class="reveal-child reveal-delay-3" style="font-family:'Lato',sans-serif;font-style:italic;font-size:16px;color:var(--text-mid);max-width:480px;margin:0 auto 32px;">Leave your warm wishes and loving congratulations for Khaled &amp; Alaa below.</p>
-
+    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:10px;font-family:'Cormorant',serif;" id="wishes-tagline" data-font-swap>Digital Guestbook</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--text-dark);margin-bottom:14px;" id="wishes-title">Wishes Wall</h2>
+    <p class="reveal-child reveal-delay-3" style="font-family:'Cormorant',serif;font-style:italic;font-size:16px;color:var(--text-mid);max-width:480px;margin:0 auto 32px;" id="wishes-sub" data-font-swap>Leave your warm wishes and loving congratulations for Khaled &amp; Alaa below.</p>
     <div class="reveal-child reveal-delay-4 wish-input-container">
       <div style="text-align:left;margin-bottom:16px;">
-        <label style="font-family:'Lato',sans-serif;font-size:12px;color:var(--green-dark);letter-spacing:1px;font-weight:bold;display:block;margin-bottom:6px;">Your Name</label>
-        <input type="text" id="wish-name-input" placeholder="Enter your name" style="border:1px solid var(--sage-light);padding:10px 14px;border-radius:6px;width:100%;font-size:16px;color:var(--text-dark);font-family:'Lato',sans-serif;outline:none;">
+        <label id="wish-name-label" style="font-family:'Cormorant',serif;font-size:12px;color:var(--green-dark);letter-spacing:1px;font-weight:bold;display:block;margin-bottom:6px;" data-font-swap>Your Name</label>
+        <input type="text" id="wish-name-input" placeholder="Enter your name" style="border:1px solid var(--sage-light);padding:10px 14px;border-radius:6px;width:100%;font-size:16px;color:var(--text-dark);font-family:'Cormorant',serif;outline:none;">
       </div>
       <div style="text-align:left;margin-bottom:20px;">
-        <label style="font-family:'Lato',sans-serif;font-size:12px;color:var(--green-dark);letter-spacing:1px;font-weight:bold;display:block;margin-bottom:6px;">Your Congratulatory Message</label>
-        <textarea id="wish-text-input" rows="3" placeholder="Write a sweet message..." style="border:1px solid var(--sage-light);padding:10px 14px;border-radius:6px;width:100%;font-size:16px;color:var(--text-dark);resize:vertical;font-family:'Lato',sans-serif;outline:none;"></textarea>
+        <label id="wish-msg-label" style="font-family:'Cormorant',serif;font-size:12px;color:var(--green-dark);letter-spacing:1px;font-weight:bold;display:block;margin-bottom:6px;" data-font-swap>Your Congratulatory Message</label>
+        <textarea id="wish-text-input" rows="3" placeholder="Write a sweet message..." style="border:1px solid var(--sage-light);padding:10px 14px;border-radius:6px;width:100%;font-size:16px;color:var(--text-dark);resize:vertical;font-family:'Cormorant',serif;outline:none;"></textarea>
       </div>
-      <button style="margin-top:0;width:100%;font-family:'Lato',sans-serif;font-size:15px;letter-spacing:2px;background:var(--green-dark);color:#fdf8f5;border:none;padding:16px 32px;border-radius:6px;cursor:pointer;transition:all .3s;" onclick="postWish()" onmouseover="this.style.background='var(--rose)'" onmouseout="this.style.background='var(--green-dark)'">Pin Message to Wall 📌</button>
-      <p id="wish-error" style="color:var(--deep-rose);font-size:14px;font-style:italic;margin-top:10px;text-align:center;font-family:'Lato',sans-serif;"></p>
+      <button id="wish-btn" style="margin-top:0;width:100%;font-family:'Cormorant',serif;font-size:15px;letter-spacing:2px;background:var(--green-dark);color:#fdf8f5;border:none;padding:16px 32px;border-radius:6px;cursor:pointer;transition:all .3s;" onclick="postWish()" onmouseover="this.style.background='var(--rose)'" onmouseout="this.style.background='var(--green-dark)'">Pin Message to Wall 📌</button>
+      <p id="wish-error" style="color:var(--deep-rose);font-size:14px;font-style:italic;margin-top:10px;text-align:center;font-family:'Cormorant',serif;"></p>
     </div>
-
     <div class="reveal-child reveal-delay-4 wishes-board" id="wishes-board"></div>
   </section>
 
@@ -577,14 +497,14 @@ html{scroll-behavior:smooth;}
   <section class="closing-section reveal-section">
     <div style="position:absolute;top:16px;left:20px;opacity:.18;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
     <div style="position:absolute;bottom:16px;right:20px;opacity:.18;pointer-events:none;"><svg width="70" height="90"><use href="#lily"/></svg></div>
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--sage-light);margin-bottom:18px;">We can't wait</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:22px;">To Share Our Day With You All!</h2>
-    <p class="reveal-child reveal-delay-3" style="font-family:'Lato',sans-serif;font-style:italic;font-size:clamp(15px,2.5vw,18px);color:var(--sage-light);max-width:460px;margin:0 auto 44px;line-height:1.75;">Your presence would be the greatest gift you could give us on the most beautiful day of our lives.</p>
+    <p class="reveal-child reveal-delay-1" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:18px;letter-spacing:.5px;font-weight:600;" id="closing-line1">We can't wait</p>
+    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(28px,5vw,48px);color:#fdf8f5;margin-bottom:22px;font-weight:600;" id="closing-line2">To Share Our Day With You All!</h2>
+    <p class="reveal-child reveal-delay-3" style="font-family:'Cormorant',serif;font-size:clamp(18px,3vw,26px);color:var(--sage-light);max-width:560px;margin:0 auto 44px;line-height:1.75;" id="closing-body" data-font-swap>Your presence would be the greatest gift you could give us on the most beautiful day of our lives.</p>
     <div class="reveal-child reveal-delay-4" style="display:inline-block;border:1px solid var(--sage);padding:28px 44px;border-radius:6px;">
       <div style="font-family:'Pinyon Script',cursive;font-size:24px;color:#fdf8f5;margin-bottom:8px;">Khaled &amp; Alaa</div>
-      <div style="font-family:'Lato',sans-serif;font-size:14px;color:var(--sage-light);letter-spacing:3px;">26 / 6 / 2026</div>
+      <div style="font-family:'Cormorant',serif;font-size:14px;color:var(--sage-light);letter-spacing:3px;">26 / 6 / 2026</div>
     </div>
-    <div class="reveal-child reveal-delay-4" style="margin-top:48px;font-family:'Lato',sans-serif;font-style:italic;font-size:18px;color:var(--sage-light);letter-spacing:1px;">✦ &nbsp; With all our love &nbsp; ✦</div>
+    <div class="reveal-child reveal-delay-4" style="margin-top:48px;font-family:'Pinyon Script',cursive;font-size:clamp(22px,3.5vw,34px);color:var(--sage-light);letter-spacing:1px;" id="closing-love">✦ &nbsp; With all our love &nbsp; ✦</div>
   </section>
 
   <!-- CINEMATIC ENDING -->
@@ -592,7 +512,7 @@ html{scroll-behavior:smooth;}
     <div class="ending-stars" id="ending-stars"></div>
     <div class="ending-particles" id="ending-particles"></div>
     <div style="font-size:clamp(28px,6vw,48px);margin-bottom:24px;opacity:0;transition:opacity 2s ease 0.5s;" id="ending-flowers"><svg width="60" height="75"><use href="#lily"/></svg></div>
-    <div class="ending-quote">
+    <div class="ending-quote" id="ending-quote-text">
       "And so together, they built a life they loved — surrounded by lilies, love, and forever."
     </div>
   </section>
@@ -615,8 +535,7 @@ html{scroll-behavior:smooth;}
   c.style.cssText='position:absolute;inset:0;pointer-events:none;overflow:hidden;';
   const cols=['#ffffff','#fff8dc','#fde0e8','#fff5ee','#f0f8ff'];
   for(let i=0;i<22;i++){
-    const p=document.createElement('div');
-    p.className='petal';
+    const p=document.createElement('div');p.className='petal';
     p.style.cssText=`left:${Math.random()*100}%;top:-20px;background:${cols[i%cols.length]};animation-duration:${6+Math.random()*7}s;animation-delay:${Math.random()*8}s;`;
     c.appendChild(p);
   }
@@ -627,36 +546,24 @@ html{scroll-behavior:smooth;}
   if(!container)return;
   function spawn(){
     if(document.getElementById('envelope-screen').style.display==='none')return;
-    const s=document.createElement('div');
-    s.className='shooting-star';
-    s.style.left=Math.random()*80+'%';
-    s.style.top=Math.random()*-50+'px';
-    const scale=Math.random()*.5+.75;
-    s.style.transform=`scale(${scale}) rotate(-15deg)`;
+    const s=document.createElement('div');s.className='shooting-star';
+    s.style.left=Math.random()*80+'%';s.style.top=Math.random()*-50+'px';
+    s.style.transform=`scale(${Math.random()*.5+.75}) rotate(-15deg)`;
     s.style.animationDuration=Math.random()*1.5+1.5+'s';
-    container.appendChild(s);
-    setTimeout(()=>s.remove(),3000);
+    container.appendChild(s);setTimeout(()=>s.remove(),3000);
   }
-  setInterval(spawn,2000);
-  for(let i=0;i<3;i++)setTimeout(spawn,i*600);
+  setInterval(spawn,2000);for(let i=0;i<3;i++)setTimeout(spawn,i*600);
 })();
 
 let musicStarted=false,muted=false;
-const bgm=document.getElementById('bgm');
-bgm.volume=0;
+const bgm=document.getElementById('bgm');bgm.volume=0;
 
 function fadeInMusic(){
-  if(musicStarted)return;
-  musicStarted=true;
+  if(musicStarted)return;musicStarted=true;
   bgm.play().then(()=>{
-    let v=0;
-    const t=setInterval(()=>{v=Math.min(v+.02,.65);bgm.volume=v;if(v>=.65)clearInterval(t);},120);
-    const btn=document.getElementById('music-btn');
-    btn.style.display='flex';btn.textContent='🔊';
-  }).catch(()=>{
-    const btn=document.getElementById('music-btn');
-    btn.style.display='flex';btn.textContent='▶';
-  });
+    let v=0;const t=setInterval(()=>{v=Math.min(v+.02,.65);bgm.volume=v;if(v>=.65)clearInterval(t);},120);
+    document.getElementById('music-btn').style.display='flex';document.getElementById('music-btn').textContent='🔊';
+  }).catch(()=>{document.getElementById('music-btn').style.display='flex';document.getElementById('music-btn').textContent='▶';});
 }
 
 function toggleMusic(){
@@ -669,252 +576,325 @@ function toggleMusic(){
 function spawnConfetti(){
   const cols=['#ffffff','#C8D5A0','#f9c8d4','#F4C2C2','#fff8dc','#fde0e8'];
   for(let i=0;i<60;i++){
-    const el=document.createElement('div');
-    el.className='confetti-piece';
+    const el=document.createElement('div');el.className='confetti-piece';
     el.style.cssText=`left:${20+Math.random()*60}%;top:-10px;background:${cols[i%cols.length]};animation-duration:${1.5+Math.random()*2}s;animation-delay:${Math.random()*.5}s;transform:rotate(${Math.random()*360}deg);`;
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(),4000);
+    document.body.appendChild(el);setTimeout(()=>el.remove(),4000);
   }
 }
 
 function spawnGreenSparks(el){
   const cols=['#A8B868','#f9c8d4','#e89aaa'];
   for(let i=0;i<12;i++){
-    const s=document.createElement('div');
-    s.className='green-spark';
-    s.style.background=cols[i%cols.length];
-    const dx=(Math.random()-0.5)*80+'px';
-    const dy=(Math.random()-1)*60+'px';
-    s.style.cssText+=`left:${Math.random()*100}%;top:${Math.random()*100}%;--px:${dx};--py:${dy};animation-delay:${Math.random()*.3}s;`;
-    el.appendChild(s);
-    setTimeout(()=>s.remove(),1500);
+    const s=document.createElement('div');s.className='green-spark';s.style.background=cols[i%cols.length];
+    s.style.cssText+=`left:${Math.random()*100}%;top:${Math.random()*100}%;--px:${(Math.random()-0.5)*80}px;--py:${(Math.random()-1)*60}px;animation-delay:${Math.random()*.3}s;`;
+    el.appendChild(s);setTimeout(()=>s.remove(),1500);
   }
 }
-['name-alaa','name-khaled'].forEach(id=>{
-  const el=document.getElementById(id);
-  if(el)el.addEventListener('mouseenter',()=>spawnGreenSparks(el));
-});
+['name-alaa','name-khaled'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('mouseenter',()=>spawnGreenSparks(el));});
 
 function openEnvelope(){
   const wrap=document.getElementById('env-wrap');
-  wrap.style.animation='none';wrap.offsetHeight;
-  wrap.classList.add('closing');
+  wrap.style.animation='none';wrap.offsetHeight;wrap.classList.add('closing');
   spawnConfetti();
   setTimeout(()=>{
     document.getElementById('envelope-screen').style.display='none';
     document.body.style.background='#f5fbf5';
     document.getElementById('invitation').style.display='block';
-    startCountdown();
-    buildVenuePetals();
-    initParallax();
-    fadeInMusic();
-    renderWishes();
-    initScrollReveal();
-    initCinematicEnding();
-    initScratchCards();
+    document.getElementById('lang-btn').style.display='flex';
+    startCountdown();buildVenuePetals();initParallax();fadeInMusic();renderWishes();initScrollReveal();initCinematicEnding();initScratchCards();
   },700);
 }
 
 const scratchData=[{id:0,value:'26'},{id:1,value:'06'},{id:2,value:'2026'}];
 let scratchInited=false;
 function initScratchCards(){
-  if(scratchInited)return;
-  scratchInited=true;
+  if(scratchInited)return;scratchInited=true;
   scratchData.forEach(({id})=>{
     const container=document.getElementById('scratch-'+id);
     const canvas=document.getElementById('canvas-'+id);
     if(!canvas||!container)return;
-    const size=container.offsetWidth||100;
-    canvas.width=size;
-    canvas.height=size;
+    const size=container.offsetWidth||100;canvas.width=size;canvas.height=size;
     const ctx=canvas.getContext('2d');
-
     const grad=ctx.createRadialGradient(size/2,size/2,0,size/2,size/2,size/2);
-    grad.addColorStop(0,'#c8dfc9');
-    grad.addColorStop(1,'#9dbf9e');
-    ctx.fillStyle=grad;
-    ctx.beginPath();
-    ctx.arc(size/2,size/2,size/2,0,Math.PI*2);
-    ctx.fill();
-
-    ctx.globalCompositeOperation='destination-out';
-    let painting=false;
-
-    function getPos(e,canvas){
-      const rect=canvas.getBoundingClientRect();
-      const scaleX=canvas.width/rect.width;
-      const scaleY=canvas.height/rect.height;
-      if(e.touches){
-        return{x:(e.touches[0].clientX-rect.left)*scaleX,y:(e.touches[0].clientY-rect.top)*scaleY};
-      }
-      return{x:(e.clientX-rect.left)*scaleX,y:(e.clientY-rect.top)*scaleY};
-    }
-
-    function scratch(e){
-      if(!painting)return;
-      e.preventDefault();
-      const pos=getPos(e,canvas);
-      ctx.beginPath();
-      ctx.arc(pos.x,pos.y,18,0,Math.PI*2);
-      ctx.fill();
-      checkReveal();
-    }
-
-    function checkReveal(){
-      const imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
-      let cleared=0;
-      for(let i=3;i<imgData.data.length;i+=4){
-        if(imgData.data[i]===0)cleared++;
-      }
-      const total=imgData.data.length/4;
-      const revealPct=cleared/total;
-      if(revealPct>0.65){
-        canvas.style.opacity='0';
-        canvas.style.transition='opacity 0.5s';
-        spawnConfetti();
-      }
-    }
-
-    canvas.addEventListener('mousedown',e=>{painting=true;scratch(e);});
-    canvas.addEventListener('mousemove',scratch);
-    canvas.addEventListener('mouseup',()=>painting=false);
-    canvas.addEventListener('mouseleave',()=>painting=false);
-    canvas.addEventListener('touchstart',e=>{painting=true;scratch(e);},{passive:false});
-    canvas.addEventListener('touchmove',scratch,{passive:false});
-    canvas.addEventListener('touchend',()=>painting=false);
+    grad.addColorStop(0,'#c8dfc9');grad.addColorStop(1,'#9dbf9e');
+    ctx.fillStyle=grad;ctx.beginPath();ctx.arc(size/2,size/2,size/2,0,Math.PI*2);ctx.fill();
+    ctx.globalCompositeOperation='destination-out';let painting=false;
+    function getPos(e){const rect=canvas.getBoundingClientRect();const sx=canvas.width/rect.width,sy=canvas.height/rect.height;return e.touches?{x:(e.touches[0].clientX-rect.left)*sx,y:(e.touches[0].clientY-rect.top)*sy}:{x:(e.clientX-rect.left)*sx,y:(e.clientY-rect.top)*sy};}
+    function scratch(e){if(!painting)return;e.preventDefault();const p=getPos(e);ctx.beginPath();ctx.arc(p.x,p.y,18,0,Math.PI*2);ctx.fill();checkReveal();}
+    function checkReveal(){const d=ctx.getImageData(0,0,canvas.width,canvas.height).data;let cl=0;for(let i=3;i<d.length;i+=4)if(d[i]===0)cl++;if(cl/(d.length/4)>0.65){canvas.style.opacity='0';canvas.style.transition='opacity 0.5s';spawnConfetti();}}
+    canvas.addEventListener('mousedown',e=>{painting=true;scratch(e);});canvas.addEventListener('mousemove',scratch);canvas.addEventListener('mouseup',()=>painting=false);canvas.addEventListener('mouseleave',()=>painting=false);
+    canvas.addEventListener('touchstart',e=>{painting=true;scratch(e);},{passive:false});canvas.addEventListener('touchmove',scratch,{passive:false});canvas.addEventListener('touchend',()=>painting=false);
   });
 }
 
-function initParallax(){
-  const bg=document.getElementById('venue-bg');
-  window.addEventListener('scroll',()=>{
-    const sec=bg.parentElement;
-    const rect=sec.getBoundingClientRect();
-    const pct=1-(rect.top+rect.height)/(window.innerHeight+rect.height);
-    bg.style.transform=`translateY(${(pct-0.5)*60}px)`;
-  },{passive:true});
-}
+function initParallax(){const bg=document.getElementById('venue-bg');window.addEventListener('scroll',()=>{const rect=bg.parentElement.getBoundingClientRect();bg.style.transform=`translateY(${(1-(rect.top+rect.height)/(window.innerHeight+rect.height)-0.5)*60}px)`;},{passive:true});}
 
-function buildVenuePetals(){
-  const c=document.getElementById('venue-petals');
-  const cols=['#ffffff','#c8dfc9','#fff8dc','#fde0e8','#f0f8ff'];
-  for(let i=0;i<22;i++){
-    const p=document.createElement('div');
-    p.className='petal';
-    p.style.cssText=`left:${Math.random()*100}%;top:-20px;background:${cols[i%cols.length]};animation-duration:${5+Math.random()*6}s;animation-delay:${Math.random()*6}s;`;
-    c.appendChild(p);
-  }
-}
+function buildVenuePetals(){const c=document.getElementById('venue-petals');const cols=['#ffffff','#c8dfc9','#fff8dc','#fde0e8','#f0f8ff'];for(let i=0;i<22;i++){const p=document.createElement('div');p.className='petal';p.style.cssText=`left:${Math.random()*100}%;top:-20px;background:${cols[i%cols.length]};animation-duration:${5+Math.random()*6}s;animation-delay:${Math.random()*6}s;`;c.appendChild(p);}}
 
 function startCountdown(){
-  const target=new Date('2026-06-26T18:00:00');
-  const pad=n=>String(n).padStart(2,'0');
-  function update(){
-    const diff=Math.max(0,target-new Date());
-    document.getElementById('cd-days').textContent=pad(Math.floor(diff/86400000));
-    document.getElementById('cd-hours').textContent=pad(Math.floor((diff%86400000)/3600000));
-    document.getElementById('cd-mins').textContent=pad(Math.floor((diff%3600000)/60000));
-    document.getElementById('cd-secs').textContent=pad(Math.floor((diff%60000)/1000));
-  }
+  const target=new Date('2026-06-26T18:00:00');const pad=n=>String(n).padStart(2,'0');
+  function update(){const diff=Math.max(0,target-new Date());document.getElementById('cd-days').textContent=pad(Math.floor(diff/86400000));document.getElementById('cd-hours').textContent=pad(Math.floor((diff%86400000)/3600000));document.getElementById('cd-mins').textContent=pad(Math.floor((diff%3600000)/60000));document.getElementById('cd-secs').textContent=pad(Math.floor((diff%60000)/1000));}
   update();setInterval(update,1000);
 }
 
-function toggleLoveLetter(){
-  document.getElementById('love-letter-widget').classList.toggle('open');
-}
+function toggleLoveLetter(){document.getElementById('love-letter-widget').classList.toggle('open');}
 
-let wishes=[];
-try{wishes=JSON.parse(localStorage.getItem('ak_wedding_wishes')||'[]');}catch(e){}
+let wishes=[];try{wishes=JSON.parse(localStorage.getItem('ak_wedding_wishes')||'[]');}catch(e){}
 
 function renderWishes(){
-  const board=document.getElementById('wishes-board');
-  if(!board)return;
-  board.innerHTML='';
-  const list=[...wishes];
-  if(list.length===0){
-    list.push({name:"Khaled & Alaa",text:"We are so excited to celebrate our love with all of you! Feel free to pin your warm wishes right here on our digital wall. 💕"});
-  }
-  list.forEach((w,idx)=>{
-    const card=document.createElement('div');
-    card.className='wish-card';
-    const rot=((idx*7)%9)-4;
-    card.style.setProperty('--rot',`${rot}deg`);
-    card.innerHTML=`<div class="wish-name">${w.name}</div><div class="wish-text">"${w.text}"</div>`;
-    board.appendChild(card);
-  });
+  const board=document.getElementById('wishes-board');if(!board)return;board.innerHTML='';
+  const list=[...wishes];if(list.length===0)list.push({name:"Khaled & Alaa",text:"We are so excited to celebrate our love with all of you! Feel free to pin your warm wishes right here on our digital wall. 💕"});
+  list.forEach((w,idx)=>{const card=document.createElement('div');card.className='wish-card';card.style.setProperty('--rot',`${((idx*7)%9)-4}deg`);card.innerHTML=`<div class="wish-name">${w.name}</div><div class="wish-text">"${w.text}"</div>`;board.appendChild(card);});
 }
 
 function postWish(){
-  const nameEl=document.getElementById('wish-name-input');
-  const textEl=document.getElementById('wish-text-input');
-  const errEl=document.getElementById('wish-error');
-  const name=nameEl.value.trim();
-  const text=textEl.value.trim();
-  if(!name||!text){errEl.textContent='Please enter both your name and a sweet message! ✦';return;}
-  errEl.textContent='';
-  wishes.unshift({name,text});
-  try{localStorage.setItem('ak_wedding_wishes',JSON.stringify(wishes));}catch(e){}
-  nameEl.value='';textEl.value='';
-  renderWishes();
-  spawnConfetti();
+  const name=document.getElementById('wish-name-input').value.trim();const text=document.getElementById('wish-text-input').value.trim();const err=document.getElementById('wish-error');
+  if(!name||!text){err.textContent=translations[currentLang].wishError;return;}
+  err.textContent='';wishes.unshift({name,text});try{localStorage.setItem('ak_wedding_wishes',JSON.stringify(wishes));}catch(e){}
+  document.getElementById('wish-name-input').value='';document.getElementById('wish-text-input').value='';renderWishes();spawnConfetti();
 }
 
-function initScrollReveal(){
-  const sections=document.querySelectorAll('.reveal-section');
-  const observer=new IntersectionObserver((entries,obs)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('revealed');
-        if(entry.target.id==='cinematic-ending')triggerEndingParticles();
-        obs.unobserve(entry.target);
-      }
-    });
-  },{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
-  sections.forEach(sec=>observer.observe(sec));
-}
+function initScrollReveal(){const observer=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');if(entry.target.id==='cinematic-ending')triggerEndingParticles();obs.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.reveal-section').forEach(sec=>observer.observe(sec));}
 
-function initCinematicEnding(){
-  const stars=document.getElementById('ending-stars');
-  if(!stars)return;
-  for(let i=0;i<45;i++){
-    const star=document.createElement('div');
-    const size=Math.random()*2+.5;
-    const col=Math.random()>.5?'#c8dfc9':'#f9c8d4';
-    star.style.cssText=`position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:${col};left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()*.4+.1};animation:starTwinkle ${2+Math.random()*3}s ${Math.random()*2}s ease-in-out infinite;`;
-    stars.appendChild(star);
-  }
-}
+function initCinematicEnding(){const stars=document.getElementById('ending-stars');if(!stars)return;for(let i=0;i<45;i++){const star=document.createElement('div');const size=Math.random()*2+.5;star.style.cssText=`position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:${Math.random()>.5?'#c8dfc9':'#f9c8d4'};left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()*.4+.1};animation:starTwinkle ${2+Math.random()*3}s ${Math.random()*2}s ease-in-out infinite;`;stars.appendChild(star);}}
 
 let endingInterval=null;
-function triggerEndingParticles(){
-  const pc=document.getElementById('ending-particles');
-  const flowers=document.getElementById('ending-flowers');
-  if(flowers)flowers.style.opacity='1';
-  if(!pc||endingInterval)return;
-  const cols=['#c8dfc9','#f9c8d4','#ffffff','#C8D5A0','#e89aaa'];
-  function spawn(){
-    if(pc.childElementCount>45)return;
-    const p=document.createElement('div');
-    const size=Math.random()*3.5+1.5;
-    const left=Math.random()*100;
-    const duration=Math.random()*6+5;
-    p.style.cssText=`position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:${cols[Math.floor(Math.random()*cols.length)]};left:${left}%;bottom:-10px;opacity:0;pointer-events:none;animation:endingDrift ${duration}s ease-in-out forwards;`;
-    pc.appendChild(p);
-    setTimeout(()=>p.remove(),duration*1000);
+function triggerEndingParticles(){const pc=document.getElementById('ending-particles');const fl=document.getElementById('ending-flowers');if(fl)fl.style.opacity='1';if(!pc||endingInterval)return;const cols=['#c8dfc9','#f9c8d4','#ffffff','#C8D5A0','#e89aaa'];function spawn(){if(pc.childElementCount>45)return;const p=document.createElement('div');const dur=Math.random()*6+5;p.style.cssText=`position:absolute;width:${Math.random()*3.5+1.5}px;height:${Math.random()*3.5+1.5}px;border-radius:50%;background:${cols[Math.floor(Math.random()*cols.length)]};left:${Math.random()*100}%;bottom:-10px;opacity:0;pointer-events:none;animation:endingDrift ${dur}s ease-in-out forwards;`;pc.appendChild(p);setTimeout(()=>p.remove(),dur*1000);}endingInterval=setInterval(spawn,260);}
+
+window.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{const loader=document.getElementById('loading-screen');if(loader){loader.style.opacity='0';loader.style.visibility='hidden';setTimeout(()=>loader.remove(),850);}},2350);});
+
+/* ═══ LANGUAGE TOGGLE ═══ */
+const translations={
+  en:{
+    sealHint:'✦ Click the seal to open ✦',
+    heroTagline:'Together with our families',
+    heroSubtitle:'request the honour of your presence',
+    heroCaption:'at the celebration of our wedding',
+    scratchTagline:'Save the Date',
+    scratchTitle:'Scratch to Reveal the Date',
+    scratchSub:'Scratch each circle to reveal our wedding date',
+    scratchLbls:['Day','Month','Year'],
+    quoteText:'"I love you not only for what you are, but for what I am when I am with you."',
+    quoteAuthor:'— Roy Croft',
+    cdTagline:'Counting down to',
+    cdTitle:'Our Big Day',
+    cdLabels:['Days','Hours','Minutes','Seconds'],
+    cdCaption:'Every second brings us closer to forever ♡',
+    venueTagline:'Our Celebration Venue',
+    mapTagline:'Find Your Way',
+    mapTitle:'Venue Location',
+    mapHint:'📍 Click on the map to open in Google Maps',
+    detailsTagline:'Everything you need to know',
+    detailsTitle:'Our Wedding Details',
+    detailRows:[
+      {label:'Ceremony Time',value:'6:00 in the Evening'},
+      {label:'Dress Code',value:'Black Tie &amp; Soirée',note:'Formal evening attire'},
+      {label:'Venue',value:'Taj Wedding Venue',note:'June 26, 2026'},
+      {label:'Theme',value:'Garden Romance',note:'Blush, olive &amp; ivory lilies'},
+      {label:'Evening',value:'Dinner &amp; Dancing',note:'Celebrate with us until midnight'},
+      {label:'Gifts',value:'Your Presence',note:'Is the greatest gift of all'},
+    ],
+    letterTagline:'A Message for You',
+    letterTitle:'Love Letter',
+    letterSub:'Click the seal below to reveal our message to you.',
+    letterGreeting:'Dearest Family &amp; Friends,',
+    letterBody:'Having you by our side as we begin our lifetime of love is the greatest blessing we could ever ask for. Your prayers, your smiles, and your presence mean the world to us. Thank you for sharing in our joy — we can\'t wait to celebrate and dance the night away with you under the stars!',
+    letterSign:'— Khaled &amp; Alaa',
+    letterCta:'Click to Read',
+    wishesTagline:'Digital Guestbook',
+    wishesTitle:'Wishes Wall',
+    wishesSub:'Leave your warm wishes and loving congratulations for Khaled &amp; Alaa below.',
+    wishNameLabel:'Your Name',
+    wishNamePH:'Enter your name',
+    wishMsgLabel:'Your Congratulatory Message',
+    wishMsgPH:'Write a sweet message...',
+    wishBtn:'Pin Message to Wall 📌',
+    wishError:'Please enter both your name and a sweet message! ✦',
+    closingLine1:'We can\'t wait',
+    closingLine2:'To Share Our Day With You All!',
+    closingBody:'Your presence would be the greatest gift you could give us on the most beautiful day of our lives.',
+    closingLove:'✦ &nbsp; With all our love &nbsp; ✦',
+    endingQuote:'"And so together, they built a life they loved — surrounded by lilies, love, and forever."',
+    langBtn:'عربي',
+    dir:'ltr',
+  },
+  ar:{
+    sealHint:'✦ انقر على الختم لفتح الدعوة ✦',
+    heroTagline:'بمشاركة عائلتينا الكريمتين',
+    heroSubtitle:'يسعدنا أن ندعوكم بكل محبة',
+    heroCaption:'لمشاركتنا فرحة زفافنا السعيد',
+    scratchTagline:'احتفظوا بالموعد',
+    scratchTitle:'امسحوا لتكتشفوا التاريخ',
+    scratchSub:'امسحوا كل دائرة لتظهر تاريخ زفافنا',
+    scratchLbls:['اليوم','الشهر','السنة'],
+    quoteText:'"وفي حضرة الحب، تصبح الحياة أجمل مما حلمنا"',
+    quoteAuthor:'',
+    cdTagline:'العد التنازلي حتى',
+    cdTitle:'يومنا الأجمل',
+    cdLabels:['أيام','ساعات','دقائق','ثواني'],
+    cdCaption:'كل لحظة تقرّبنا أكثر من الأبد ♡',
+    venueTagline:'Our Celebration Venue',
+    mapTagline:'طريقك إلينا',
+    mapTitle:'مكان الاحتفال',
+    mapHint:'📍 انقر على الخريطة لفتحها في خرائط جوجل',
+    detailsTagline:'كل ما تحتاجون معرفته',
+    detailsTitle:'تفاصيل حفل الزفاف',
+    detailRows:[
+      {label:'موعد الحفل',value:'السادسة مساءً'},
+      {label:'كود اللبس',value:'Black Tie &amp; Soirée',note:'الملابس الرسمية السهرة'},
+      {label:'القاعة',value:'Taj Wedding Venue',note:'٢٦ يونيو ٢٠٢٦'},
+      {label:'طابع الحفل',value:'رومانسية الحدائق',note:'ألوان ناعمة وزهور زنبق'},
+      {label:'السهرة',value:'عشاء وفرح',note:'نحتفل معكم حتى منتصف الليل'},
+      {label:'الهدايا',value:'حضوركم',note:'هو أثمن هدية تقدمونها لنا'},
+    ],
+    letterTagline:'رسالة من القلب',
+    letterTitle:'رسالة الحب',
+    letterSub:'انقر على الختم لتكتشف رسالتنا إليك.',
+    letterGreeting:'أحبّتنا الغاليين،',
+    letterBody:'أن تكونوا بجانبنا وهنا نبدأ رحلة العمر معاً، هو أجمل نعمة نتمناها. دعواتكم وابتساماتكم وحضوركم تملأ قلوبنا بهجةً لا توصف. شكراً لمشاركتنا هذه الفرحة — لا نستطيع الانتظار لنرقص ونحتفل معكم تحت النجوم!',
+    letterSign:'— خالد &amp; آلاء',
+    letterCta:'انقر للقراءة',
+    wishesTagline:'سجل الضيوف',
+    wishesTitle:'جدار الأمنيات',
+    wishesSub:'شاركونا أجمل أمنياتكم وتهانيكم لخالد وآلاء.',
+    wishNameLabel:'اسمك',
+    wishNamePH:'أدخل اسمك',
+    wishMsgLabel:'رسالة تهنئتك',
+    wishMsgPH:'اكتب رسالة رقيقة...',
+    wishBtn:'ثبّت رسالتك على الجدار 📌',
+    wishError:'من فضلك أدخل اسمك ورسالتك الجميلة! ✦',
+    closingLine1:'لا نستطيع الانتظار',
+    closingLine2:'لنشارككم أسعد أيام حياتنا!',
+    closingBody:'حضوركم هو أغلى هدية يمكنكم منحنا إياها في أبهج أيامنا.',
+    closingLove:'✦ &nbsp; بكل المحبة &nbsp; ✦',
+    endingQuote:'"ومن بين مليارات البشر، اختار قلبي أن يسكن قلبك إلى الأبد."',
+    langBtn:'EN',
+    dir:'rtl',
   }
-  endingInterval=setInterval(spawn,260);
+};
+
+let currentLang='en';
+function toggleLang(){
+  currentLang=currentLang==='en'?'ar':'en';
+  const lblEn=document.getElementById('lbl-en');
+  const lblAr=document.getElementById('lbl-ar');
+  if(currentLang==='ar'){
+    lblEn.classList.remove('active');
+    lblAr.classList.add('active');
+  } else {
+    lblEn.classList.add('active');
+    lblAr.classList.remove('active');
+  }
+  applyLang(currentLang);
 }
 
-window.addEventListener('DOMContentLoaded',()=>{
-  setTimeout(()=>{
-    const loader=document.getElementById('loading-screen');
-    if(loader){
-      loader.style.opacity='0';
-      loader.style.visibility='hidden';
-      setTimeout(()=>loader.remove(),850);
-    }
-  },2350);
-});
+function applyLang(lang){
+  const t=translations[lang];
+  const inv=document.getElementById('invitation');
+  if(!inv)return;
+  inv.setAttribute('dir',t.dir);
+  document.getElementById('lang-btn').style.display='flex';
+  // quote author — hide if empty
+  const authorEl=document.getElementById('love-quote-author');
+  if(authorEl)authorEl.style.display=t.quoteAuthor?'block':'none';
+
+  // seal hint
+  const hint=document.querySelector('.hint-pulse');if(hint)hint.innerHTML=t.sealHint;
+
+  // hero
+  setText('hero-tagline',t.heroTagline);
+  setText('hero-subtitle',t.heroSubtitle);
+  setText('hero-caption',t.heroCaption);
+
+  // scratch
+  setText('scratch-tagline',t.scratchTagline);
+  setText('scratch-title',t.scratchTitle);
+  setText('scratch-sub',t.scratchSub);
+  ['scratch-lbl-0','scratch-lbl-1','scratch-lbl-2'].forEach((id,i)=>setText(id,t.scratchLbls[i]));
+
+  // quote
+  setText('love-quote-text',t.quoteText);
+  setText('love-quote-author',t.quoteAuthor);
+
+  // countdown
+  setText('cd-tagline',t.cdTagline);
+  setText('cd-title',t.cdTitle);
+  ['cd-lbl-days','cd-lbl-hours','cd-lbl-mins','cd-lbl-secs'].forEach((id,i)=>setText(id,t.cdLabels[i]));
+  setText('cd-caption',t.cdCaption);
+
+  // venue
+  setText('venue-tagline',t.venueTagline);
+
+  // map
+  setText('map-tagline',t.mapTagline);
+  setText('map-title',t.mapTitle);
+  setText('map-hint',t.mapHint);
+
+  // wedding details
+  setText('details-tagline',t.detailsTagline);
+  setText('details-title',t.detailsTitle);
+  t.detailRows.forEach((row,i)=>{
+    setText('detail-label-'+i,row.label);
+    setHTML('detail-value-'+i,row.value);
+    if(row.note!==undefined)setText('detail-note-'+i,row.note);
+  });
+
+  // love letter
+  setText('letter-tagline',t.letterTagline);
+  setText('letter-title',t.letterTitle);
+  setText('letter-sub',t.letterSub);
+  setHTML('letter-greeting',t.letterGreeting);
+  setText('letter-body',t.letterBody);
+  setHTML('letter-sign',t.letterSign);
+  setText('letter-cta',t.letterCta);
+
+  // wishes
+  setText('wishes-tagline',t.wishesTagline);
+  setText('wishes-title',t.wishesTitle);
+  setHTML('wishes-sub',t.wishesSub);
+  setText('wish-name-label',t.wishNameLabel);
+  const ni=document.getElementById('wish-name-input');if(ni)ni.placeholder=t.wishNamePH;
+  setText('wish-msg-label',t.wishMsgLabel);
+  const ti=document.getElementById('wish-text-input');if(ti)ti.placeholder=t.wishMsgPH;
+  setText('wish-btn',t.wishBtn);
+
+  // closing
+  setText('closing-line1',t.closingLine1);
+  setText('closing-line2',t.closingLine2);
+  setText('closing-body',t.closingBody);
+  setHTML('closing-love',t.closingLove);
+
+  // ending
+  setHTML('ending-quote-text','"'+t.endingQuote.replace(/^"|"$/g,'')+'"');
+
+  // font swap for arabic — apply Amiri to all translated text elements
+  const allTextIds = [
+    'hero-tagline','hero-subtitle','hero-caption',
+    'scratch-tagline','scratch-title','scratch-sub','scratch-lbl-0','scratch-lbl-1','scratch-lbl-2',
+    'love-quote-text','love-quote-author',
+    'cd-tagline','cd-title','cd-lbl-days','cd-lbl-hours','cd-lbl-mins','cd-lbl-secs','cd-caption',
+    'venue-tagline','map-tagline','map-title','map-hint',
+    'details-tagline','details-title',
+    'detail-label-0','detail-value-0',
+    'detail-label-1','detail-value-1','detail-note-1',
+    'detail-label-2','detail-value-2','detail-note-2',
+    'detail-label-3','detail-value-3','detail-note-3',
+    'detail-label-4','detail-value-4','detail-note-4',
+    'detail-label-5','detail-value-5','detail-note-5',
+    'letter-tagline','letter-title','letter-sub','letter-greeting','letter-body','letter-sign','letter-cta',
+    'wishes-tagline','wishes-title','wishes-sub','wish-name-label','wish-msg-label','wish-btn',
+    'closing-line1','closing-line2','closing-body','closing-love',
+    'ending-quote-text'
+  ];
+  if(lang==='ar'){
+    allTextIds.forEach(id=>{const el=document.getElementById(id);if(el)el.style.fontFamily="'Amiri', serif";});
+  } else {
+    allTextIds.forEach(id=>{const el=document.getElementById(id);if(el)el.style.fontFamily='';});
+  }
+}
+function setText(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
+function setHTML(id,val){const el=document.getElementById(id);if(el)el.innerHTML=val;}
+
 </script>
 </body>
 </html>

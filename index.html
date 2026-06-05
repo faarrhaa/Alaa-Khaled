@@ -406,14 +406,14 @@ html{scroll-behavior:smooth;}
   </section>
 
   <!-- MAP -->
-  <section class="reveal-section" style="background:linear-gradient(160deg,#f5fbf5,#fdf0f5);padding:50px 24px;text-align:center;position:relative;overflow:hidden;">
-    <p class="reveal-child reveal-delay-1 tagline" style="color:var(--deep-rose);margin-bottom:14px;font-family:'Cormorant',serif;" id="map-tagline" data-font-swap>Find Your Way</p>
-    <h2 class="reveal-child reveal-delay-2" style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,36px);font-weight:600;color:var(--text-dark);margin-bottom:24px;" id="map-title">Venue Location</h2>
-    <div class="reveal-child reveal-delay-3 map-container" style="position:relative;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.7452085917744!2d31.22433331514457!3d30.04592298188239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846c4360bc8c3%3A0x58f55eaf5ba04a33!2sTaj%20Wedding%20Venue!5e0!3m2!1sen!2seg!4v1678888888888!5m2!1sen!2seg" width="100%" height="300" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section style="background:linear-gradient(160deg,#f5fbf5,#fdf0f5);padding:50px 24px;text-align:center;position:relative;overflow:hidden;opacity:1;transform:none;">
+    <p class="tagline" style="color:var(--deep-rose);margin-bottom:14px;font-family:'Cormorant',serif;" id="map-tagline" data-font-swap>Find Your Way</p>
+    <h2 style="font-family:'Pinyon Script',cursive;font-size:clamp(22px,4vw,36px);font-weight:600;color:var(--text-dark);margin-bottom:24px;" id="map-title">Venue Location</h2>
+    <div class="map-container" style="position:relative;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.7452085917744!2d31.22433331514457!3d30.04592298188239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846c4360bc8c3%3A0x58f55eaf5ba04a33!2sTaj%20Wedding%20Venue!5e0!3m2!1sen!2seg!4v1678888888888!5m2!1sen!2seg" width="100%" height="300" style="border:0; display:block;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <a href="https://maps.app.goo.gl/Aj2xbtFPUeE2qx1m9" target="_blank" style="position:absolute;inset:0;z-index:10;display:block;" aria-label="Open in Google Maps"></a>
     </div>
-    <div class="reveal-child reveal-delay-4" style="text-align:center;margin-top:14px;">
+    <div style="text-align:center;margin-top:14px;">
       <p style="font-family:'Cormorant',serif;font-size:13px;color:var(--text-light);font-style:italic;letter-spacing:1px;" id="map-hint" data-font-swap>📍 Click on the map to open in Google Maps</p>
     </div>
   </section>
@@ -477,7 +477,7 @@ html{scroll-behavior:smooth;}
       </div>
       <div class="letter-pocket" onclick="toggleLoveLetter()">
         <div class="letter-seal">💌</div>
-        <div id="letter-cta" style="position:absolute;bottom:15px;color:#fdf8f5;font-size:11px;letter-spacing:clamp(1px,0.8vw,3px);font-family:'Cormorant',serif;text-transform:uppercase;" data-font-swap>Click to Read</div>
+        <div id="letter-cta" style="position:absolute;bottom:15px;color:#fdf8f5;font-size:13px;letter-spacing:1px;font-family:'Cormorant',serif;text-transform:uppercase;font-weight:600;" data-font-swap>Click to Read</div>
       </div>
     </div>
   </section>
@@ -499,7 +499,7 @@ html{scroll-behavior:smooth;}
         <label id="wish-msg-label" style="font-family:'Cormorant',serif;font-size:12px;color:var(--green-dark);letter-spacing:1px;font-weight:bold;display:block;margin-bottom:6px;" data-font-swap>Your Congratulatory Message</label>
         <textarea id="wish-text-input" rows="3" placeholder="Write a sweet message..." style="border:1px solid var(--sage-light);padding:10px 14px;border-radius:6px;width:100%;font-size:16px;color:var(--text-dark);resize:vertical;font-family:'Cormorant',serif;outline:none;"></textarea>
       </div>
-      <button id="wish-btn" style="margin-top:0;width:100%;font-family:'Cormorant',serif;font-size:15px;letter-spacing:2px;background:var(--green-dark);color:#fdf8f5;border:none;padding:16px 32px;border-radius:6px;cursor:pointer;transition:all .3s;" onclick="postWish()" onmouseover="this.style.background='var(--rose)'" onmouseout="this.style.background='var(--green-dark)'">Pin Message to Wall 📌</button>
+      <button id="wish-btn" style="margin-top:0;width:100%;font-family:'Cormorant',serif;font-size:17px;letter-spacing:0;background:var(--green-dark);color:#fdf8f5;border:none;padding:16px 32px;border-radius:6px;cursor:pointer;transition:all .3s;" onclick="postWish()" onmouseover="this.style.background='var(--rose)'" onmouseout="this.style.background='var(--green-dark)'">Pin Message to Wall 📌</button>
       <p id="wish-error" style="color:var(--deep-rose);font-size:14px;font-style:italic;margin-top:10px;text-align:center;font-family:'Cormorant',serif;"></p>
     </div>
     <div class="reveal-child reveal-delay-4 wishes-board" id="wishes-board"></div>
@@ -819,7 +819,11 @@ function applyLang(lang){
   setText('hero-tagline',t.heroTagline);
   setText('hero-subtitle',t.heroSubtitle);
   setText('hero-caption',t.heroCaption);
-  // fix hero-subtitle — Pinyon Script is Latin only, swap to Amiri for Arabic
+  // fix letter-cta and wish-btn for Arabic (no letter-spacing, Amiri)
+  const cta=document.getElementById('letter-cta');
+  if(cta){cta.style.fontFamily=lang==='ar'?"'Amiri',serif":"'Cormorant',serif";cta.style.letterSpacing=lang==='ar'?'0':'1px';cta.style.textTransform=lang==='ar'?'none':'uppercase';cta.style.fontSize=lang==='ar'?'16px':'13px';}
+  const wbtn=document.getElementById('wish-btn');
+  if(wbtn){wbtn.style.fontFamily=lang==='ar'?"'Amiri',serif":"'Cormorant',serif";wbtn.style.letterSpacing='0';wbtn.style.fontSize=lang==='ar'?'18px':'17px';}
   const heroSub=document.getElementById('hero-subtitle');
   if(heroSub){
     heroSub.style.fontFamily=lang==='ar'?"'Amiri',serif":"'Pinyon Script',cursive";

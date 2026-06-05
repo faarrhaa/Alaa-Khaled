@@ -159,7 +159,33 @@ html{scroll-behavior:smooth;}
 .name-shimmer{position:relative;display:inline-block;min-height:1.15em;transition:width 0.3s;}
 .green-spark{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--olive-dark);pointer-events:none;animation:goldParticle 1.2s ease-out forwards;}
 
-@media(max-width:640px){
+/* ── GLOBAL ARABIC CLARITY ── */
+[dir="rtl"] #map-hint,
+[dir="rtl"] #map-tagline,
+[dir="rtl"] #cd-caption,
+[dir="rtl"] #scratch-sub,
+[dir="rtl"] #hero-caption,
+[dir="rtl"] #letter-sub,
+[dir="rtl"] #letter-tagline,
+[dir="rtl"] #wishes-tagline,
+[dir="rtl"] #wishes-sub,
+[dir="rtl"] #closing-body,
+[dir="rtl"] #wish-name-label,
+[dir="rtl"] #wish-msg-label,
+[dir="rtl"] #details-tagline,
+[dir="rtl"] #venue-tagline,
+[dir="rtl"] #cd-caption,
+[dir="rtl"] #closing-love {
+  font-family:'Amiri',serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  font-style:normal!important;
+  font-size:clamp(14px,3.5vw,18px)!important;
+}
+[dir="rtl"] .wish-name{font-family:'Amiri',serif!important;letter-spacing:0!important;}
+[dir="rtl"] .wish-text{font-family:'Amiri',serif!important;font-style:normal!important;letter-spacing:0!important;}
+[dir="rtl"] #wish-name-input,[dir="rtl"] #wish-text-input{font-family:'Amiri',serif!important;letter-spacing:0!important;}
+
   section{padding-left:16px!important;padding-right:16px!important;padding-top:56px!important;padding-bottom:56px!important;}
   .hint-pulse{font-size:12px!important;letter-spacing:3px!important;}
   #name-alaa{font-size:clamp(72px,18vw,110px)!important;}
@@ -415,7 +441,7 @@ html{scroll-behavior:smooth;}
       <a href="https://maps.app.goo.gl/Aj2xbtFPUeE2qx1m9" target="_blank" style="position:absolute;inset:0;z-index:10;display:block;" aria-label="Open in Google Maps"></a>
     </div>
     <div style="text-align:center;margin-top:14px;">
-      <p style="font-family:'Cormorant',serif;font-size:13px;color:var(--text-light);font-style:italic;letter-spacing:1px;" id="map-hint" data-font-swap>📍 Click on the map to open in Google Maps</p>
+      <p style="font-family:'Cormorant',serif;font-size:14px;color:var(--text-light);font-style:italic;" id="map-hint" data-font-swap>📍 Click on the map to open in Google Maps</p>
     </div>
   </section>
 
@@ -921,9 +947,23 @@ function applyLang(lang){
     'ending-quote-text'
   ];
   if(lang==='ar'){
-    allTextIds.forEach(id=>{const el=document.getElementById(id);if(el)el.style.fontFamily="'Amiri', serif";});
+    allTextIds.forEach(id=>{
+      const el=document.getElementById(id);
+      if(!el)return;
+      el.style.fontFamily="'Amiri', serif";
+      el.style.letterSpacing='0';
+      el.style.textTransform='none';
+      el.style.fontStyle='normal';
+    });
   } else {
-    allTextIds.forEach(id=>{const el=document.getElementById(id);if(el)el.style.fontFamily='';});
+    allTextIds.forEach(id=>{
+      const el=document.getElementById(id);
+      if(!el)return;
+      el.style.fontFamily='';
+      el.style.letterSpacing='';
+      el.style.textTransform='';
+      el.style.fontStyle='';
+    });
   }
 }
 function setText(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
